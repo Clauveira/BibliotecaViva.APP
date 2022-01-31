@@ -102,48 +102,48 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer4"]
-margin_left = 67.0
-margin_top = 279.0
-margin_right = 83.0
-margin_bottom = 295.0
+margin_left = 27.0
+margin_top = 271.0
+margin_right = 59.0
+margin_bottom = 303.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 7 )
 stretch_mode = 3
 
 [node name="TextureButton2" type="TextureButton" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer4"]
-margin_left = 99.0
-margin_top = 279.0
-margin_right = 115.0
-margin_bottom = 295.0
+margin_left = 75.0
+margin_top = 271.0
+margin_right = 107.0
+margin_bottom = 303.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 8 )
 stretch_mode = 3
 
 [node name="TextureButton3" type="TextureButton" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer4"]
-margin_left = 131.0
-margin_top = 279.0
-margin_right = 147.0
-margin_bottom = 295.0
+margin_left = 123.0
+margin_top = 271.0
+margin_right = 155.0
+margin_bottom = 303.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 6 )
 stretch_mode = 3
 
 [node name="TextureButton4" type="TextureButton" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer4"]
-margin_left = 163.0
-margin_top = 279.0
-margin_right = 179.0
-margin_bottom = 295.0
+margin_left = 171.0
+margin_top = 271.0
+margin_right = 203.0
+margin_bottom = 303.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 4 )
 stretch_mode = 3
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer4"]
-margin_left = 195.0
-margin_right = 221.0
+margin_left = 219.0
+margin_right = 245.0
 margin_bottom = 574.0
 custom_constants/separation = 26
 custom_styles/separator = SubResource( 1 )
@@ -152,10 +152,10 @@ __meta__ = {
 }
 
 [node name="TextureButton5" type="TextureButton" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer4"]
-margin_left = 237.0
-margin_top = 279.0
-margin_right = 253.0
-margin_bottom = 295.0
+margin_left = 261.0
+margin_top = 271.0
+margin_right = 293.0
+margin_bottom = 303.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 5 )
