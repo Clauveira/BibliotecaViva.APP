@@ -36,6 +36,13 @@ namespace BibliotecaViva.BLL
         {
             return SAL.ExecutarPost<string, List<IdiomaDTO>>(URLConsultarIdioma, "Consultar");
         }
+        public void PopularDropDownGenero(OptionButton dropdown)
+        {
+            dropdown.AddItem(string.Empty);
+            dropdown.AddItem("Feminino");
+            dropdown.AddItem("Masculino");
+            dropdown.AddItem("Prefiro não declarar");
+        }
         public List<TipoDTO> PopularDropDownTipo(OptionButton dropdown)
         {
             var tipos = ConsultarTipos();

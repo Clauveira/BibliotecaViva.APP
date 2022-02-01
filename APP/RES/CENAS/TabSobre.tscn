@@ -164,7 +164,7 @@ margin_top = 242.0
 margin_right = 546.0
 margin_bottom = 290.0
 rect_scale = Vector2( 1.5, 1.5 )
-text = "Este é um software OpenSource seu código fonte é distribuído sob a licença permissiva MIT, já os seus assets e funcionalidades são distribuídos pela licença CC BY-SA. Clique nos botões abaixo para acessar o código fonte."
+text = "Este é um software OpenSource seu código fonte é distribuído sob a licença livre GPL 3, já os seus assets e funcionalidades são distribuídos pela licença Creative Commons CC BY. Clique nos botões abaixo para acessar o código fonte."
 align = 3
 autowrap = true
 __meta__ = {
@@ -173,10 +173,10 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="Controladores/Livre"]
 self_modulate = Color( 1, 1, 1, 0.780392 )
-margin_left = 69.0
-margin_top = 357.0
-margin_right = 170.0
-margin_bottom = 458.0
+margin_left = 587.0
+margin_top = 346.0
+margin_right = 712.0
+margin_bottom = 408.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
@@ -184,20 +184,20 @@ __meta__ = {
 }
 
 [node name="RepoAPI" type="Button" parent="Controladores/Livre"]
-margin_left = 221.0
-margin_top = 362.0
-margin_right = 477.0
-margin_bottom = 382.0
+margin_left = 130.0
+margin_top = 366.0
+margin_right = 386.0
+margin_bottom = 386.0
 rect_scale = Vector2( 1.5, 1.5 )
 text = "Acessar Código fon da Aplicação"
 icon = ExtResource( 9 )
 expand_icon = true
 
 [node name="RepoAPP" type="Button" parent="Controladores/Livre"]
-margin_left = 221.0
-margin_top = 410.0
-margin_right = 477.0
-margin_bottom = 430.0
+margin_left = 130.0
+margin_top = 414.0
+margin_right = 386.0
+margin_bottom = 434.0
 rect_scale = Vector2( 1.5, 1.5 )
 text = "Acessar Código fon da API"
 icon = ExtResource( 10 )
@@ -205,10 +205,10 @@ expand_icon = true
 
 [node name="TextureRect3" type="TextureRect" parent="Controladores/Livre"]
 modulate = Color( 1, 1, 1, 0.717647 )
-margin_left = 653.0
-margin_top = 381.0
-margin_right = 760.0
-margin_bottom = 422.0
+margin_left = 590.0
+margin_top = 423.0
+margin_right = 709.0
+margin_bottom = 464.0
 texture = ExtResource( 11 )
 expand = true
 

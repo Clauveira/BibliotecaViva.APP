@@ -12,7 +12,7 @@
 [ext_resource path="res://RES/AvoreBRanca.png" type="Texture" id=10]
 [ext_resource path="res://CTRL/ArvoreBrancaCTRL.cs" type="Script" id=11]
 [ext_resource path="res://RES/FallingPetals.png" type="Texture" id=12]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/MinimalUI.tres" type="Theme" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=13]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Folhas Caindo"
@@ -152,7 +152,6 @@ __meta__ = {
 [node name="SideBar" type="ColorRect" parent="Control"]
 margin_right = 189.0
 margin_bottom = 604.0
-color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -187,11 +186,12 @@ __meta__ = {
 }
 
 [node name="Versao" type="Label" parent="Control/Logo"]
-margin_left = 50.0
+margin_left = 12.0
 margin_top = 546.0
-margin_right = 133.0
+margin_right = 181.0
 margin_bottom = 560.0
-text = "Versão Alpha"
+text = "Versão Alpha 1.0.2"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -210,30 +210,30 @@ __meta__ = {
 }
 
 [node name="CadastrarPessoa" type="Button" parent="Control/VBoxContainer"]
-margin_top = 12.0
+margin_top = 23.0
 margin_right = 141.0
-margin_bottom = 37.0
+margin_bottom = 43.0
 hint_tooltip = "Clique aqui para cadastrar uma nova Pista Viva."
 text = "Nova Pista Viva"
 icon = ExtResource( 5 )
 expand_icon = true
 
 [node name="CadatrarRegistro" type="Button" parent="Control/VBoxContainer"]
-margin_top = 45.0
+margin_top = 51.0
 margin_right = 141.0
-margin_bottom = 70.0
+margin_bottom = 71.0
 hint_tooltip = "Clique aqui para cadastrar um novo Registro."
 text = "Novo Registro"
 icon = ExtResource( 3 )
 expand_icon = true
 
 [node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
-margin_top = 78.0
+margin_top = 79.0
 margin_right = 141.0
-margin_bottom = 82.0
+margin_bottom = 87.0
 
 [node name="Buscar" type="Button" parent="Control/VBoxContainer"]
-margin_top = 90.0
+margin_top = 95.0
 margin_right = 141.0
 margin_bottom = 115.0
 hint_tooltip = "Clique aqui para explorar os Registros ou Pistas Vivas cadastradas."
@@ -244,30 +244,30 @@ expand_icon = true
 [node name="Sonar" type="Button" parent="Control/VBoxContainer"]
 margin_top = 123.0
 margin_right = 141.0
-margin_bottom = 148.0
+margin_bottom = 143.0
 hint_tooltip = "Clique aqui para ativar o modo de exploração geolocalizado."
 text = "Sonar"
 icon = ExtResource( 4 )
 expand_icon = true
 
 [node name="Rastros" type="Button" parent="Control/VBoxContainer"]
-margin_top = 156.0
+margin_top = 151.0
 margin_right = 141.0
-margin_bottom = 181.0
+margin_bottom = 171.0
 hint_tooltip = "Clique aqui para ver a densidade de Registros por região."
 text = "Rastros"
 icon = ExtResource( 2 )
 expand_icon = true
 
 [node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
-margin_top = 189.0
+margin_top = 179.0
 margin_right = 141.0
-margin_bottom = 193.0
+margin_bottom = 187.0
 
 [node name="Sobre" type="Button" parent="Control/VBoxContainer"]
-margin_top = 201.0
+margin_top = 195.0
 margin_right = 141.0
-margin_bottom = 226.0
+margin_bottom = 215.0
 hint_tooltip = "Clique aqui para ver os apoiadores e informações sobre licença de uso e acesso ao código fonte."
 text = "Sobre"
 icon = ExtResource( 9 )

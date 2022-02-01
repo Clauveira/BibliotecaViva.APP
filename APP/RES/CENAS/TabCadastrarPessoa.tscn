@@ -111,16 +111,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Genero" type="LineEdit" parent="Inputs"]
+[node name="Genero" type="OptionButton" parent="Inputs"]
 margin_left = 1.0
 margin_top = 118.0
 margin_right = 364.0
 margin_bottom = 142.0
 hint_tooltip = "Digite aqui o gênero da Pista Viva a ser cadastrada. Atenção! Este campo é obrigatório!"
-placeholder_text = "Gênero"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="lblGenero" type="Label" parent="Inputs/Genero"]
 margin_top = -18.0
@@ -147,26 +143,6 @@ margin_top = -18.0
 margin_right = 43.0
 margin_bottom = -4.0
 text = "Apelido:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Latitude" type="LineEdit" parent="Inputs"]
-margin_left = 1.0
-margin_top = 217.0
-margin_right = 364.0
-margin_bottom = 241.0
-hint_tooltip = "Digite aqui as coordenadas geográficas onde a Pista Viva está localizada no seguinte formado ( 00.0000 , 00.0000). Este campo é opcional."
-placeholder_text = "Latitude, Longitude"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="lblGeoLocalizacao" type="Label" parent="Inputs/Latitude"]
-margin_top = -18.0
-margin_right = 43.0
-margin_bottom = -4.0
-text = "GeoLocalização:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

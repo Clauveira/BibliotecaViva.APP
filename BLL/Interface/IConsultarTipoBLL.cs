@@ -14,6 +14,7 @@ namespace BibliotecaViva.BLL.Interface
         List<TipoDTO> PopularDropDownTipo(OptionButton dropdown);
         List<TipoRelacaoDTO> PopularDropDownTipoRelacao(OptionButton dropdown);
         List<IdiomaDTO> PopularDropDownIdioma(OptionButton dropdown);
+        void PopularDropDownGenero(OptionButton dropdown);
 
         void Dispose();
     }
