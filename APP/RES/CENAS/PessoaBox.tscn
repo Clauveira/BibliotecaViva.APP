@@ -136,9 +136,9 @@ __meta__ = {
 }
 
 [node name="Apelido" type="Control" parent="Conteudo/VBoxContainer"]
-margin_top = 44.0
+margin_top = 48.0
 margin_right = 361.0
-margin_bottom = 84.0
+margin_bottom = 88.0
 rect_min_size = Vector2( 361, 40 )
 
 [node name="Label" type="Label" parent="Conteudo/VBoxContainer/Apelido"]
@@ -176,9 +176,9 @@ __meta__ = {
 }
 
 [node name="Botoes" type="Control" parent="Conteudo/VBoxContainer"]
-margin_top = 88.0
+margin_top = 96.0
 margin_right = 361.0
-margin_bottom = 123.0
+margin_bottom = 131.0
 rect_min_size = Vector2( 0, 35 )
 
 [node name="Editar" type="Button" parent="Conteudo/VBoxContainer/Botoes"]
