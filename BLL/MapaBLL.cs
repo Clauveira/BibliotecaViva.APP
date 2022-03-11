@@ -22,14 +22,14 @@ namespace BibliotecaViva.BLL
         private void Zoom(Sprite mapa, float delta)
 		{
 			if (Input.IsActionJustReleased("ui_page_down"))
-				AplicarZoom(mapa, 5f * delta);
+				AplicarZoom(mapa, 0.97f);
 			if (Input.IsActionJustReleased("ui_page_up"))
-				AplicarZoom(mapa, -5f * delta);
+				AplicarZoom(mapa, 1.03f);
 		}
 
 		private void AplicarZoom(Sprite mapa, float incremento)
 		{
-			mapa.Scale += new Vector2(incremento, incremento);
+			mapa.Scale *= new Vector2(incremento, incremento);
 		}
 		
 		private void Drag(Sprite mapa, Vector2 mouseMovement, float delta)

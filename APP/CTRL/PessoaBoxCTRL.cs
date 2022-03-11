@@ -14,10 +14,8 @@ namespace BibliotecaViva.CTRL
 		public TabSonarCTRL TabSonar { get; set; }
 		public PessoaDTO Pessoa { get; set; }
 		private Label NomeCompleto { get; set; }
-		private Label NomeSocial { get; set; }
 		private Label Genero { get; set; }
 		private Label Apelido { get; set; }
-		private Label Localizacao { get ;set; }
 		public override void _Ready()
 		{
 			PopularNodes();
@@ -31,24 +29,20 @@ namespace BibliotecaViva.CTRL
 		private void PopularNodes()
 		{
 			NomeCompleto = GetNode<Label>("./Conteudo/NomeCompleto/Conteudo");
-			NomeSocial = GetNode<Label>("./Conteudo/VBoxContainer/NomeSocial/Conteudo");
 			Genero = GetNode<Label>("./Conteudo/VBoxContainer/Genero/Conteudo");
 			Apelido = GetNode<Label>("./Conteudo/VBoxContainer/Apelido/Conteudo");
-			Localizacao = GetNode<Label>("./Conteudo/VBoxContainer/GeoLocalizacao/Conteudo");
 		}
 		public void Preencher(PessoaDTO pessoaDTO, Vector2 posicao)
 		{
 			RectPosition = posicao;
 			Pessoa = pessoaDTO;
 			NomeCompleto.Text = Pessoa.Nome + " " + Pessoa.Sobrenome;
-			PopularCampoOpcional(NomeSocial, Pessoa.NomeSocial);
 			PopularCampoOpcional(Genero, Pessoa.Genero);
 			PopularCampoOpcional(Apelido, Pessoa.Apelido);
-			PopularCampoOpcional(Localizacao, Pessoa.Latitude + " , " + Pessoa.Longitude);
 		}
 		private void PopularCampoOpcional(Label campo, string conteudo)
 		{
-			(campo.GetParent() as Control).Visible = !string.IsNullOrEmpty(conteudo);
+			(campo.GetParent() as Control).Visible = (!string.IsNullOrEmpty(conteudo) && conteudo != "Prefiro não declarar");
 			campo.Text = conteudo;
 		}
 		private void _on_Editar_button_up()
@@ -65,10 +59,8 @@ namespace BibliotecaViva.CTRL
 		public void FecharCTRL()
 		{
 			NomeCompleto.QueueFree();
-			NomeSocial.QueueFree();
 			Genero.QueueFree();
 			Apelido.QueueFree();
-			Localizacao.QueueFree();
 			if (Pessoa != null)
 				Pessoa.Dispose();
 			QueueFree();

@@ -315,11 +315,11 @@ margin_top = -196.0
 margin_right = 338.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 646, 368 )
-window_title = "Abrir um Arquivo"
+window_title = "Open a File"
 mode = 0
 access = 2
-current_dir = "/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP"
-current_path = "/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/"
+current_dir = "/Dev/Godot/Mono 3.4/BibliotecaViva.APP/APP"
+current_path = "/Dev/Godot/Mono 3.4/BibliotecaViva.APP/APP/"
 
 [node name="BuscaRelacoes" type="Control" parent="."]
 anchor_left = 0.5

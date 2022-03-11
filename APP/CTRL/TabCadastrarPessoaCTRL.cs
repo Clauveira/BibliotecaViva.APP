@@ -23,9 +23,9 @@ namespace BibliotecaViva.CTRL
 		private LineEdit Nome { get; set; }
 		private LineEdit Sobrenome { get; set; }
 		private LineEdit NomeBusca { get; set; }
-		private LineEdit Genero { get; set; }
+		private Label TesteID { get; set; } /////REMOVER
+		private OptionButton Genero { get; set; }
 		private LineEdit Apelido { get; set; }
-		private LineEdit LatLong { get ; set; }
 		private Label Erro { get; set; }
 		private Label Sucesso { get; set; }
 		private VBoxContainer ContainerRelacao { get; set; }
@@ -54,18 +54,20 @@ namespace BibliotecaViva.CTRL
 		private void PopularNodes()
 		{
 			Nome = GetNode<LineEdit>("./Inputs/Nome");
+			TesteID = GetNode<Label>("./Inputs/Nome/TesteID");
 			NomeBusca = GetNode<LineEdit>("./BuscaRelacoes/Nome");
 			Sobrenome = GetNode<LineEdit>("./Inputs/Sobrenome");
-			Genero = GetNode<LineEdit>("./Inputs/Genero");
+			Genero = GetNode<OptionButton>("./Inputs/Genero");
 			Apelido = GetNode<LineEdit>("./Inputs/Apelido");
-			LatLong = GetNode<LineEdit>("./Inputs/Latitude");
 			Sucesso = GetNode<Label>("./Sucesso");
 			Erro = GetNode<Label>("./Erro");
 			DropdownIdioma = GetNode<OptionButton>("./BuscaRelacoes/Idioma");
 			ContainerRelacao = GetNode<VBoxContainer>("./Inputs/ScrollContainer/VBoxContainer");
 			LinhaRelacao = GetNode<LinhaRelacaoCTRL>("./LinhaRelacao");
+			Genero = GetNode<OptionButton>("./Inputs/Genero");
 			TiposRelacao = TipoBLL.ConsultarTiposRelacao();
 			Idiomas = TipoBLL.PopularDropDownIdioma(DropdownIdioma);
+			TipoBLL.PopularDropDownGenero(Genero);
 			CodigoPessoa = 0;
 		}
 		private void _on_SalvarAlteracoes_button_up()
@@ -160,7 +162,7 @@ namespace BibliotecaViva.CTRL
 		{
 			try
 			{
-				var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, Genero.Text, Apelido.Text, LatLong.Text, CodigoPessoa, ObterListaDeRelacoes());
+				var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, Genero.GetItemText(Genero.Selected), Apelido.Text, CodigoPessoa, ObterListaDeRelacoes());
 				LimparPreenchimento();
 				LimparItensNaoRelacionados(true);
 				var retorno = CadastroPessoaBLL.CadastrarPessoa(pessoa);
@@ -190,14 +192,29 @@ namespace BibliotecaViva.CTRL
 			Sucesso.Text = sucesso ? mensagem : string.Empty;
 			Erro.Text = sucesso ? string.Empty : mensagem;
 		}
+		private void SetarDropdownDeGenero(string genero)
+		{
+			switch(genero)
+			{
+				case "Feminino":
+					Genero.Selected = 1;
+					break;
+				case "Masculino":
+					Genero.Selected = 2;
+					break;
+				default:
+					Genero.Selected = 3;
+					break;					
+			}
+		}
 		public void PopularPreenchiento(PessoaDTO pessoa)
 		{
 			CodigoPessoa = pessoa.Codigo;
+			TesteID.Text = "Codigo: " + CodigoPessoa.ToString();
 			Nome.Text = pessoa.Nome;
 			Sobrenome.Text = pessoa.Sobrenome;
-			Genero.Text = pessoa.Genero;
 			Apelido.Text = pessoa.Apelido;
-			LatLong.Text = pessoa.Latitude + ", " + pessoa.Longitude;
+			SetarDropdownDeGenero(pessoa.Genero);
 			Task.Run(async () => await BuscarRegistros(false, pessoa));
 		}
 		private void LimparPreenchimento()
@@ -205,10 +222,9 @@ namespace BibliotecaViva.CTRL
 			CodigoPessoa = 0;
 			Nome.Text = string.Empty;
 			Sobrenome.Text = string.Empty;
-			Genero.Text = string.Empty;
 			Apelido.Text = string.Empty;
-			LatLong.Text = string.Empty;
 			NomeBusca.Text = string.Empty;
+			Genero.Selected = 0;
 		}
 		public void FecharCTRL()
 		{
@@ -221,7 +237,6 @@ namespace BibliotecaViva.CTRL
 			Sobrenome.QueueFree();
 			Genero.QueueFree();
 			Apelido.QueueFree();
-			LatLong.QueueFree();
 			Sucesso.QueueFree();
 			Erro.QueueFree();
 			foreach(var linha in ContainerRelacao.GetChildren())

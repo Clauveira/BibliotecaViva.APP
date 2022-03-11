@@ -66,10 +66,6 @@ namespace BibliotecaViva.CTRL
 			var resultado = SonarBLL.ExecutarSonar(sonar);
 			if (resultado != null)
 			{
-				foreach (var pessoa in resultado.Pessoas)
-				{
-					CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(0), 0);
-				}
 				foreach (var relacao in resultado.Registros)
 				{
 					CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(0), 0);

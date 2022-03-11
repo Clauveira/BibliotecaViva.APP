@@ -41,8 +41,8 @@ margin_right = 841.0
 margin_bottom = 439.0
 window_title = "Salvar um Arquivo"
 access = 2
-current_dir = "/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP"
-current_path = "/home/rmlehnemann/Projetos/BibliotecaViva.APP/APP/"
+current_dir = "/Dev/Godot/Mono 3.4/BibliotecaViva.APP/APP"
+current_path = "/Dev/Godot/Mono 3.4/BibliotecaViva.APP/APP/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -160,9 +160,9 @@ __meta__ = {
 }
 
 [node name="Descricao" type="Control" parent="Conteudo/VBoxContainer"]
-margin_top = 44.0
+margin_top = 48.0
 margin_right = 361.0
-margin_bottom = 200.0
+margin_bottom = 204.0
 rect_min_size = Vector2( 361, 156 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -203,8 +203,9 @@ __meta__ = {
 
 [node name="Conteudo" type="RichTextLabel" parent="Conteudo/VBoxContainer/Descricao/ScrollContainer"]
 margin_right = 345.0
-margin_bottom = 15.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 345, 0 )
+bbcode_enabled = true
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -288,8 +289,9 @@ __meta__ = {
 
 [node name="Conteudo" type="RichTextLabel" parent="Conteudo/VBoxContainer/Texto/ScrollContainer"]
 margin_right = 345.0
-margin_bottom = 15.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 345, 0 )
+bbcode_enabled = true
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -414,9 +416,9 @@ __meta__ = {
 }
 
 [node name="Botoes" type="Control" parent="Conteudo/VBoxContainer"]
-margin_top = 204.0
+margin_top = 212.0
 margin_right = 361.0
-margin_bottom = 239.0
+margin_bottom = 247.0
 rect_min_size = Vector2( 0, 35 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,0 +1,205 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/Rodape.tres" type="Theme" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Logo_CAPES.svg" type="Texture" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Logo Sem Sigla.png" type="Texture" id=3]
+
+[node name="Rodape" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -58.5
+margin_bottom = 58.5
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer"]
+margin_right = 474.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer"]
+margin_left = 77.0
+margin_right = 153.0
+margin_bottom = 17.0
+size_flags_vertical = 0
+text = "CONTATO: "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/HBoxContainer"]
+margin_left = 161.0
+margin_right = 397.0
+margin_bottom = 117.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 17.0
+text = "+ 55 51 35911100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 25.0
+margin_right = 236.0
+margin_bottom = 42.0
+text = "Universidade do Vale do Rio dos Sinos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Panel/HBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 236.0
+margin_bottom = 67.0
+text = "Av. Unisinos, 950"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Panel/HBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 236.0
+margin_bottom = 92.0
+text = "Cristo Rei"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Panel/HBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 236.0
+margin_bottom = 117.0
+text = "93022000 - São Leopoldo, RS, Brasil"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/HBoxContainer"]
+margin_left = 482.0
+margin_right = 956.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/HBoxContainer5"]
+margin_left = 178.0
+margin_right = 295.0
+margin_bottom = 117.0
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer5/HBoxContainer2"]
+margin_right = 117.0
+margin_bottom = 17.0
+text = "SOBRE NÓS"
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer/HBoxContainer5/HBoxContainer2"]
+margin_top = 25.0
+margin_right = 117.0
+margin_bottom = 42.0
+text = "EQUIPE"
+
+[node name="Label3" type="Label" parent="Panel/HBoxContainer/HBoxContainer5/HBoxContainer2"]
+margin_top = 50.0
+margin_right = 117.0
+margin_bottom = 67.0
+text = "GPe-dU UNISINOS"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/HBoxContainer"]
+margin_left = 964.0
+margin_right = 1438.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer3"]
+margin_right = 186.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.4
+text = "REALIZAÇÃO:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/HBoxContainer3"]
+margin_left = 194.0
+margin_right = 474.0
+margin_bottom = 117.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.6
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/HBoxContainer"]
+margin_left = 1446.0
+margin_right = 1920.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer4"]
+margin_right = 155.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+text = "APOIO:"
+align = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer4"]
+margin_left = 163.0
+margin_right = 474.0
+margin_bottom = 117.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_constants/margin_right = 30
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/HBoxContainer4/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 281.0
+margin_bottom = 101.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6

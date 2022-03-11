@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://CTRL/MainCTRL.cs" type="Script" id=1]
 [ext_resource path="res://RES/ICONES/Rastros.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://RES/AvoreBRanca.png" type="Texture" id=10]
 [ext_resource path="res://CTRL/ArvoreBrancaCTRL.cs" type="Script" id=11]
 [ext_resource path="res://RES/FallingPetals.png" type="Texture" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=13]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Folhas Caindo"
@@ -87,8 +88,9 @@ font_data = ExtResource( 8 )
 [node name="Main" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
-margin_bottom = 600.0
+anchor_bottom = 1.0
 rect_min_size = Vector2( 1024, 600 )
+theme = ExtResource( 13 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -96,9 +98,8 @@ __meta__ = {
 
 [node name="Container" type="Control" parent="."]
 anchor_right = 1.0
-margin_left = 189.0
-margin_right = 2.0
-margin_bottom = 600.0
+anchor_bottom = 1.0
+margin_left = 182.0
 rect_min_size = Vector2( 836.998, 600 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,8 +142,8 @@ playback_speed = 0.85
 anims/RESET = SubResource( 5 )
 
 [node name="Control" type="Control" parent="."]
-margin_right = 189.0
-margin_bottom = 604.0
+anchor_bottom = 1.0
+margin_right = 190.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,7 +151,6 @@ __meta__ = {
 [node name="SideBar" type="ColorRect" parent="Control"]
 margin_right = 189.0
 margin_bottom = 604.0
-color = Color( 0.161166, 0.152756, 0.183594, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,11 +185,12 @@ __meta__ = {
 }
 
 [node name="Versao" type="Label" parent="Control/Logo"]
-margin_left = 50.0
+margin_left = 12.0
 margin_top = 546.0
-margin_right = 133.0
+margin_right = 181.0
 margin_bottom = 560.0
-text = "Versão Alpha"
+text = "Versão Alpha 1.0.2"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -208,64 +209,64 @@ __meta__ = {
 }
 
 [node name="CadastrarPessoa" type="Button" parent="Control/VBoxContainer"]
-margin_top = 41.0
+margin_top = 23.0
 margin_right = 141.0
-margin_bottom = 61.0
+margin_bottom = 43.0
 hint_tooltip = "Clique aqui para cadastrar uma nova Pista Viva."
 text = "Nova Pista Viva"
 icon = ExtResource( 5 )
 expand_icon = true
 
 [node name="CadatrarRegistro" type="Button" parent="Control/VBoxContainer"]
-margin_top = 65.0
+margin_top = 51.0
 margin_right = 141.0
-margin_bottom = 85.0
+margin_bottom = 71.0
 hint_tooltip = "Clique aqui para cadastrar um novo Registro."
 text = "Novo Registro"
 icon = ExtResource( 3 )
 expand_icon = true
 
 [node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
-margin_top = 89.0
+margin_top = 79.0
 margin_right = 141.0
-margin_bottom = 93.0
+margin_bottom = 87.0
 
 [node name="Buscar" type="Button" parent="Control/VBoxContainer"]
-margin_top = 97.0
+margin_top = 95.0
 margin_right = 141.0
-margin_bottom = 117.0
+margin_bottom = 115.0
 hint_tooltip = "Clique aqui para explorar os Registros ou Pistas Vivas cadastradas."
 text = "Buscar"
 icon = ExtResource( 6 )
 expand_icon = true
 
 [node name="Sonar" type="Button" parent="Control/VBoxContainer"]
-margin_top = 121.0
+margin_top = 123.0
 margin_right = 141.0
-margin_bottom = 141.0
+margin_bottom = 143.0
 hint_tooltip = "Clique aqui para ativar o modo de exploração geolocalizado."
 text = "Sonar"
 icon = ExtResource( 4 )
 expand_icon = true
 
 [node name="Rastros" type="Button" parent="Control/VBoxContainer"]
-margin_top = 145.0
+margin_top = 151.0
 margin_right = 141.0
-margin_bottom = 165.0
+margin_bottom = 171.0
 hint_tooltip = "Clique aqui para ver a densidade de Registros por região."
 text = "Rastros"
 icon = ExtResource( 2 )
 expand_icon = true
 
 [node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
-margin_top = 169.0
+margin_top = 179.0
 margin_right = 141.0
-margin_bottom = 173.0
+margin_bottom = 187.0
 
 [node name="Sobre" type="Button" parent="Control/VBoxContainer"]
-margin_top = 177.0
+margin_top = 195.0
 margin_right = 141.0
-margin_bottom = 197.0
+margin_bottom = 215.0
 hint_tooltip = "Clique aqui para ver os apoiadores e informações sobre licença de uso e acesso ao código fonte."
 text = "Sobre"
 icon = ExtResource( 9 )
