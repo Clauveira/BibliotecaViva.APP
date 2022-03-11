@@ -11,12 +11,16 @@ public class Linha : Line2D
     public Godot.Object ponto_a_obj;
     public Godot.Object ponto_b_obj;
 
+    private Control OffsetNode;
+    private Vector2 PontaLinha = new Vector2(0.5f, 0.2f);
+
     public override void _Ready()
     {
-        SetPointPosition(0, new Vector2(0, 0));
-        SetPointPosition(1, new Vector2(-200, 150));
+        //SetPointPosition(0, new Vector2(0, 0));
+        //SetPointPosition(1, new Vector2(-200, 150));
         ponto_a_obj = GetNode(ponto_a);
         ponto_b_obj = GetNode(ponto_b);
+        OffsetNode = GetParent<Control>();
         Atualizar_posicao();
     }
 
@@ -36,8 +40,8 @@ public class Linha : Line2D
         {
             //GD.Print("Reposiciona Linha!");
 
-            SetPointPosition(0, GetNode<Position2D>(ponto_a).GlobalPosition);
-            SetPointPosition(1, GetNode<Position2D>(ponto_b).GlobalPosition);
+            SetPointPosition(0, (GetNode<Control>(ponto_a).RectPosition + GetNode<Control>(ponto_a).RectSize * PontaLinha));// * OffsetNode.RectScale - OffsetNode.RectPosition));
+            SetPointPosition(1, (GetNode<Control>(ponto_b).RectPosition + GetNode<Control>(ponto_b).RectSize * PontaLinha)); // - OffsetNode.RectPosition* OffsetNode.RectScale
         }
         else
         {

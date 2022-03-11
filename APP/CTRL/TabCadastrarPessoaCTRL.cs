@@ -23,6 +23,7 @@ namespace BibliotecaViva.CTRL
 		private LineEdit Nome { get; set; }
 		private LineEdit Sobrenome { get; set; }
 		private LineEdit NomeBusca { get; set; }
+		private Label TesteID { get; set; } /////REMOVER
 		private OptionButton Genero { get; set; }
 		private LineEdit Apelido { get; set; }
 		private Label Erro { get; set; }
@@ -53,6 +54,7 @@ namespace BibliotecaViva.CTRL
 		private void PopularNodes()
 		{
 			Nome = GetNode<LineEdit>("./Inputs/Nome");
+			TesteID = GetNode<Label>("./Inputs/Nome/TesteID");
 			NomeBusca = GetNode<LineEdit>("./BuscaRelacoes/Nome");
 			Sobrenome = GetNode<LineEdit>("./Inputs/Sobrenome");
 			Genero = GetNode<OptionButton>("./Inputs/Genero");
@@ -208,6 +210,7 @@ namespace BibliotecaViva.CTRL
 		public void PopularPreenchiento(PessoaDTO pessoa)
 		{
 			CodigoPessoa = pessoa.Codigo;
+			TesteID.Text = "Codigo: " + CodigoPessoa.ToString();
 			Nome.Text = pessoa.Nome;
 			Sobrenome.Text = pessoa.Sobrenome;
 			Apelido.Text = pessoa.Apelido;

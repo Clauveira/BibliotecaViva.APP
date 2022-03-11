@@ -1,333 +1,116 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/MenuSuperior.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=2]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Borda.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Rodape.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaArtigo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/Map.png" type="Texture" id=4]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/PainelDeFundo.cs" type="Script" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Teste_UX.cs" type="Script" id=6]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Janela.tscn" type="PackedScene" id=7]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/world.svg" type="Texture" id=8]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Linha.tscn" type="PackedScene" id=9]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/DEPRECATED_Janela.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaPessoa.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Location.svg" type="Texture" id=11]
+[ext_resource path="res://CTRL/_Teste.cs" type="Script" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaSobre.tscn" type="PackedScene" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaGPedU.tscn" type="PackedScene" id=14]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaLocalidade.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.94902, 0.94902, 0.94902, 1 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 20
-outline_size = 1
-outline_color = Color( 0.670588, 0, 0, 0.211765 )
-use_filter = true
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 13
-font_data = ExtResource( 3 )
-
 [node name="Teste_UX" type="Node2D"]
 script = ExtResource( 6 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 256, 204 )
-current = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PainelDeFundo" type="Panel" parent="CanvasLayer2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
 custom_styles/panel = SubResource( 1 )
+script = ExtResource( 5 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="World" type="Sprite" parent="CanvasLayer/Control/Panel"]
+[node name="Offset" type="Control" parent="CanvasLayer2/PainelDeFundo"]
+rect_pivot_offset = Vector2( 1247, 118 )
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="World" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
 position = Vector2( 2359, -407 )
 texture = ExtResource( 8 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[node name="MenuSuperior" parent="CanvasLayer/Control/Panel/VBoxContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 159.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.15
-
-[node name="Body" type="Control" parent="CanvasLayer/Control/Panel/VBoxContainer"]
-margin_top = 167.0
-margin_right = 1920.0
-margin_bottom = 912.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Panel/VBoxContainer/Body"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -304.5
-margin_top = -219.0
-margin_right = 304.5
-margin_bottom = 219.0
-rect_pivot_offset = Vector2( -0.5, 0.5 )
-custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "[wave][b]O que te conecta?[/b][/wave]
-
-Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
-
-O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a [color=red]realidade hiperconectada hibridiza[/color] o mundo [color=red]biológico[/color], o [color=red]físico[/color] e o [color=red]digital[/color]. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias [color=red]se conectar a pessoas[/color], [color=red]lugares[/color], [color=red]plantas[/color] e [color=red]animais[/color] de qualquer lugar do mundo. 
-
-Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
-"
-text = "O que te conecta?
-
-Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
-
-O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a realidade hiperconectada hibridiza o mundo biológico, o físico e o digital. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias se conectar a pessoas, lugares, plantas e animais de qualquer lugar do mundo. 
-
-Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
-"
+[node name="MapaTeste" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
+position = Vector2( 1147, 467 )
+scale = Vector2( 1.50292, 1.50292 )
+texture = ExtResource( 4 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[node name="Rodape" parent="CanvasLayer/Control/Panel/VBoxContainer" instance=ExtResource( 5 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 920.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.15
+[node name="Sprite" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
+position = Vector2( 1219, 619 )
+texture = ExtResource( 11 )
+offset = Vector2( 0.7, -16 )
+script = ExtResource( 12 )
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="Linha" parent="CanvasLayer2/PainelDeFundo/Offset" instance=ExtResource( 9 )]
+ponto_a = NodePath("../Janelas/JanelaGPedU")
+ponto_b = NodePath("../Janelas/JanelaSobre")
 
-[node name="Linha" parent="CanvasLayer2" instance=ExtResource( 9 )]
-ponto_a = NodePath("../Janelas/JanelaGPedU/Position2DB")
-ponto_b = NodePath("../Janelas/JanelaSobre/Position2DA")
-
-[node name="Janelas" type="Control" parent="CanvasLayer2"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Janelas" type="Control" parent="CanvasLayer2/PainelDeFundo/Offset"]
+mouse_filter = 2
 theme = ExtResource( 2 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="JanelaGPedU" parent="CanvasLayer2/Janelas" instance=ExtResource( 10 )]
-margin_left = 771.0
-margin_top = 204.0
-margin_right = 1296.0
-margin_bottom = 549.0
-rect_pivot_offset = Vector2( -1467, -220 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-Titulo = "Sobre o GPe-dU"
+[node name="JanelaPessoa" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 10 )]
+margin_left = 271.0
+margin_top = 695.0
+margin_right = 737.0
+margin_bottom = 974.0
 
-[node name="Position2DB" type="Position2D" parent="CanvasLayer2/Janelas/JanelaGPedU"]
-position = Vector2( 276, 112 )
+[node name="JanelaLocalidade" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 15 )]
+margin_left = 903.0
+margin_top = 700.0
+margin_right = 1366.0
+margin_bottom = 1276.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Janelas/JanelaGPedU"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 30
-custom_constants/margin_top = 30
-custom_constants/margin_left = 30
-custom_constants/margin_bottom = 30
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="JanelaSobre" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 13 )]
+margin_left = 166.0
+margin_top = 245.0
+margin_right = 744.0
+margin_bottom = 590.0
 
-[node name="Borda" parent="CanvasLayer2/Janelas/JanelaGPedU/MarginContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 495.0
-margin_bottom = 315.0
+[node name="JanelaGPedU" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 14 )]
+margin_left = 1081.0
+margin_top = 252.0
+margin_right = 1610.0
+margin_bottom = 601.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer2/Janelas/JanelaGPedU/MarginContainer/Borda"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="JanelaArtigo" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 3 )]
+margin_left = 1718.0
+margin_top = 624.0
+margin_right = 2181.0
+margin_bottom = 1200.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Janelas/JanelaGPedU/MarginContainer/Borda/MarginContainer2"]
-margin_left = 26.0
-margin_top = 6.0
-margin_right = 463.0
-margin_bottom = 279.0
-rect_pivot_offset = Vector2( -0.5, 0.5 )
-custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "O Grupo Internacional de Pesquisa Educação Digital – GPe-dU foi criado em 1998 e cadastrado no Diretório de Grupos de Pesquisa do CNPq em 2004. O GPe-dU, que teve origem no Programa de Pós-Graduação em Educação da UNISINOS, em 2019, se expande em rede, a partir da organização por hubs. Atualmente, se conectam ao GPe-dU UNISINOS o hub GPe-dU Paraná e o hub GPe-dU Minas Gerais. O GPe-dU se constitui na tríade Pesquisa, Desenvolvimento e Formação, tendo como campo temático principal a Educação na conexão com a Transformação Digital em contextos escolares e não escolares. Assim, o GPe-dU produz conhecimentos, tecnologias, metodologias e práticas educacionais na interface entre tecnologias e desenvolvimento cognitivo, cultural e social. Busca inovação na educação, a partir da conexão com diferentes áreas do conhecimento e organizações, constituindo Ecossistemas Conectivos Inventivos que envolvem entidades humanas e não humanas na promoção da cidadania digital e da transformação social."
-text = "O Grupo Internacional de Pesquisa Educação Digital – GPe-dU foi criado em 1998 e cadastrado no Diretório de Grupos de Pesquisa do CNPq em 2004. O GPe-dU, que teve origem no Programa de Pós-Graduação em Educação da UNISINOS, em 2019, se expande em rede, a partir da organização por hubs. Atualmente, se conectam ao GPe-dU UNISINOS o hub GPe-dU Paraná e o hub GPe-dU Minas Gerais. O GPe-dU se constitui na tríade Pesquisa, Desenvolvimento e Formação, tendo como campo temático principal a Educação na conexão com a Transformação Digital em contextos escolares e não escolares. Assim, o GPe-dU produz conhecimentos, tecnologias, metodologias e práticas educacionais na interface entre tecnologias e desenvolvimento cognitivo, cultural e social. Busca inovação na educação, a partir da conexão com diferentes áreas do conhecimento e organizações, constituindo Ecossistemas Conectivos Inventivos que envolvem entidades humanas e não humanas na promoção da cidadania digital e da transformação social."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="JanelaSobre" parent="CanvasLayer2/Janelas" instance=ExtResource( 10 )]
-margin_left = -196.0
-margin_top = 235.0
-margin_right = 382.0
-margin_bottom = 591.0
-Titulo = "Sobre a plataforma Educação Onlife"
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Janelas/JanelaSobre"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 30
-custom_constants/margin_top = 30
-custom_constants/margin_left = 30
-custom_constants/margin_bottom = 30
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Borda" parent="CanvasLayer2/Janelas/JanelaSobre/MarginContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 548.0
-margin_bottom = 326.0
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer2/Janelas/JanelaSobre/MarginContainer/Borda"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Janelas/JanelaSobre/MarginContainer/Borda/MarginContainer2"]
-margin_left = 26.0
-margin_top = 6.0
-margin_right = 516.0
-margin_bottom = 290.0
-rect_pivot_offset = Vector2( -0.5, 0.5 )
-custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "[wave][b]O que te conecta?[/b][/wave]
-
-Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
-
-O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a [color=red]realidade hiperconectada hibridiza[/color] o mundo [color=red]biológico[/color], o [color=red]físico[/color] e o [color=red]digital[/color]. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias [color=red]se conectar a pessoas[/color], [color=red]lugares[/color], [color=red]plantas[/color] e [color=red]animais[/color] de qualquer lugar do mundo. 
-
-Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
-"
-text = "O que te conecta?
-
-Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
-
-O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a realidade hiperconectada hibridiza o mundo biológico, o físico e o digital. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias se conectar a pessoas, lugares, plantas e animais de qualquer lugar do mundo. 
-
-Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Position2DA" type="Position2D" parent="CanvasLayer2/Janelas/JanelaSobre"]
-position = Vector2( 266, 126 )
-
-[node name="Janela3" parent="CanvasLayer2/Janelas" instance=ExtResource( 10 )]
-margin_left = 611.0
-margin_top = 776.0
-margin_right = 989.0
-margin_bottom = 955.0
-
-[node name="Janela4" parent="CanvasLayer2/Janelas" instance=ExtResource( 10 )]
-margin_left = 27.0
-margin_top = 646.0
-margin_right = 519.0
-margin_bottom = 1008.0
-
-[node name="Janela" parent="CanvasLayer2/Janelas" instance=ExtResource( 7 )]
-margin_left = 1412.0
-margin_top = 259.0
-margin_right = 1838.0
-margin_bottom = 747.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Janelas/Janela"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 30
-custom_constants/margin_top = 30
-custom_constants/margin_left = 30
-custom_constants/margin_bottom = 30
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Borda" parent="CanvasLayer2/Janelas/Janela/MarginContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 396.0
-margin_bottom = 458.0
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer2/Janelas/Janela/MarginContainer/Borda"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Janelas/Janela/MarginContainer/Borda/MarginContainer2"]
-margin_left = 26.0
-margin_top = 6.0
-margin_right = 364.0
-margin_bottom = 422.0
-rect_pivot_offset = Vector2( -0.5, 0.5 )
-custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "[wave][b]O que te conecta?[/b][/wave]
-
-Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
-
-O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a [color=red]realidade hiperconectada hibridiza[/color] o mundo [color=red]biológico[/color], o [color=red]físico[/color] e o [color=red]digital[/color]. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias [color=red]se conectar a pessoas[/color], [color=red]lugares[/color], [color=red]plantas[/color] e [color=red]animais[/color] de qualquer lugar do mundo. 
-
-Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
-"
-text = "O que te conecta?
-
-Talvez a pergunta soe meio aberta, então vamos começar do princípio... Existe uma lenda japonesa chamada Akai Ito que diz que todos nós temos um fio vermelho que nos conecta a alguém. Esse fio pode esticar, enrolar, dar nós, mas nunca se rompe. Eu, você, as plantas, os animais, as tecnologias, todos estamos conectados, interagindo e mutuamente alterando a forma como percebemos o mundos. São essas conexões que nos definem, que nos dizem quem somos e a que território pertencemos, que nos atribuem significado e compõem nossa identidade. 
-
-O que instiga o conhecimento são as perguntas, o que mobiliza o aprendizado é o afeto, o princípio de toda relação é a confiança, o que nos fortalece é a cooperação e o que nos liga é o amor e a solidariedade. E o mundo já não é mais o mesmo: a realidade hiperconectada hibridiza o mundo biológico, o físico e o digital. Nos enredamos e nos tornamos fluxo, nosso Akai Ito se digitalizou, se tornou internet, wi-fi, sensores, dispositivos e tecnologias que oportunizaram ao nosso Akai Ito cruzar grandes distâncias se conectar a pessoas, lugares, plantas e animais de qualquer lugar do mundo. 
-
-Por onde o seu fio já passou? Que rastros ele deixou? Que territórios ele adentrou? Com quantos outros fios ele se cruzou? Convidamos você a explorar, criar e descobrir, por meio desta plataforma você poderá trilhar diversos caminhos, explorar distintos territórios, perseguir pistas, e se conectar a diferentes pessoas, lugares, tecnologias e saberes, e quem sabe descobrir o que te conecta.
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="InterfaceSobreposta" parent="CanvasLayer" instance=ExtResource( 1 )]

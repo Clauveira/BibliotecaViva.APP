@@ -98,9 +98,8 @@ __meta__ = {
 
 [node name="Container" type="Control" parent="."]
 anchor_right = 1.0
-margin_left = 189.0
-margin_right = 2.0
-margin_bottom = 600.0
+anchor_bottom = 1.0
+margin_left = 182.0
 rect_min_size = Vector2( 836.998, 600 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -143,8 +142,8 @@ playback_speed = 0.85
 anims/RESET = SubResource( 5 )
 
 [node name="Control" type="Control" parent="."]
-margin_right = 189.0
-margin_bottom = 604.0
+anchor_bottom = 1.0
+margin_right = 190.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
