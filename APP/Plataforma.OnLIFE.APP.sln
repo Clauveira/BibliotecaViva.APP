@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaViva.APP", "BibliotecaViva.APP.csproj", "{7CF7F4B3-66C6-49E1-B848-1C45E460E06F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plataforma.OnLIFE.APP", "Plataforma.OnLIFE.APP.csproj", "{7CF7F4B3-66C6-49E1-B848-1C45E460E06F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

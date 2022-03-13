@@ -244,7 +244,6 @@ mouse_filter = 2
 theme = ExtResource( 5 )
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -253,7 +252,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -277,7 +275,6 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -295,7 +292,6 @@ margin_right = 94.0
 margin_bottom = 130.0
 custom_styles/panel = SubResource( 7 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -307,8 +303,7 @@ texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 2
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Anim" type="AnimationPlayer" parent="."]
