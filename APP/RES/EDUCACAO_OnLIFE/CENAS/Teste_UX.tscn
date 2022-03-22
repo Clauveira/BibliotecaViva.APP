@@ -1,19 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=1]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=2]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaArtigo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/Map.png" type="Texture" id=4]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/PainelDeFundo.cs" type="Script" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Teste_UX.cs" type="Script" id=6]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/world.svg" type="Texture" id=8]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Linha.tscn" type="PackedScene" id=9]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaPessoa.tscn" type="PackedScene" id=10]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Location.svg" type="Texture" id=11]
 [ext_resource path="res://CTRL/_Teste.cs" type="Script" id=12]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaSobre.tscn" type="PackedScene" id=13]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaGPedU.tscn" type="PackedScene" id=14]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/JanelaLocalidade.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.94902, 0.94902, 0.94902, 1 )
@@ -32,16 +26,10 @@ anchor_bottom = 1.0
 rect_clip_content = true
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Offset" type="Control" parent="CanvasLayer2/PainelDeFundo"]
 rect_pivot_offset = Vector2( 1247, 118 )
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="World" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
 position = Vector2( 2359, -407 )
@@ -59,45 +47,8 @@ offset = Vector2( 0.7, -16 )
 script = ExtResource( 12 )
 
 [node name="Linha" parent="CanvasLayer2/PainelDeFundo/Offset" instance=ExtResource( 9 )]
-ponto_a = NodePath("../Janelas/JanelaGPedU")
-ponto_b = NodePath("../Janelas/JanelaSobre")
-
-[node name="Janelas" type="Control" parent="CanvasLayer2/PainelDeFundo/Offset"]
-mouse_filter = 2
-theme = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="JanelaPessoa" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 10 )]
-margin_left = 271.0
-margin_top = 695.0
-margin_right = 737.0
-margin_bottom = 974.0
-
-[node name="JanelaLocalidade" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 15 )]
-margin_left = 903.0
-margin_top = 700.0
-margin_right = 1366.0
-margin_bottom = 1276.0
-
-[node name="JanelaSobre" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 13 )]
-margin_left = 166.0
-margin_top = 245.0
-margin_right = 744.0
-margin_bottom = 590.0
-
-[node name="JanelaGPedU" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 14 )]
-margin_left = 1081.0
-margin_top = 252.0
-margin_right = 1610.0
-margin_bottom = 601.0
-
-[node name="JanelaArtigo" parent="CanvasLayer2/PainelDeFundo/Offset/Janelas" instance=ExtResource( 3 )]
-margin_left = 1718.0
-margin_top = 624.0
-margin_right = 2181.0
-margin_bottom = 1200.0
+ponto_a = NodePath("")
+ponto_b = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

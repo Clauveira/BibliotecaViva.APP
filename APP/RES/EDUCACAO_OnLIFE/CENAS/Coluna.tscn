@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="Coluna" type="ScrollContainer"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -475.0
+margin_bottom = 475.0
+rect_min_size = Vector2( 1920, 950 )
+
+[node name="Colunas" type="HBoxContainer" parent="."]
+margin_right = 1920.0
+rect_min_size = Vector2( 1920, 0 )
+alignment = 1

@@ -20,6 +20,7 @@ public class InterfaceSobreposta : Control
 
 	public void _on_CloseButton_pressed()
 	{
+		GD.Print("Vivo");
 		GetNode<AnimationPlayer>("Anim").Play("Retrair");
 	}
 }
