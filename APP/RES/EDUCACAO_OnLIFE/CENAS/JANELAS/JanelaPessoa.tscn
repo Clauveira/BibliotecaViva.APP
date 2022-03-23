@@ -106,7 +106,7 @@ __meta__ = {
 margin_right = 167.0
 margin_bottom = 180.0
 texture_normal = ExtResource( 5 )
-stretch_mode = 3
+expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Conteudo/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 200.0
@@ -290,8 +290,10 @@ text = "SALVAR"
 self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
 margin_left = 51.0
 margin_top = -112.0
-margin_right = 638.0
-margin_bottom = 448.0
+margin_right = 962.0
+margin_bottom = 719.0
+rect_min_size = Vector2( 600, 70 )
+rect_scale = Vector2( 0.75, 0.75 )
 window_title = "Escolha a Foto"
 mode = 0
 access = 2

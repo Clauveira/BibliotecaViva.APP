@@ -11,6 +11,7 @@ using BibliotecaViva.DTO.Utils;
 using BibliotecaViva.DTO.Dominio;
 using BibliotecaViva.BLL.Interface;
 using BibliotecaViva.CTRL.Interface;
+using BibliotecaViva.BLL.Utils;
 
 namespace Onlife.CTRL
 {
@@ -19,7 +20,7 @@ namespace Onlife.CTRL
 		public int Coluna { get; set; }
 		public int CodPessoa { get; set; }
 		public PessoaDTO Pessoa { get; set; }
-		public RegistroDTO FotodDTO { get; set; }
+		public RegistroDTO FotoDTO { get; set; }
 		public RegistroDTO LattesDTO { get; set; }
 		public RegistroDTO ResearchGateDTO { get; set; }
 		public RegistroDTO IDDTO { get; set; }
@@ -84,7 +85,7 @@ namespace Onlife.CTRL
 			TituloURL = GetNode<Label>("./URL/Nome/Label");
 			URL = GetNode<LineEdit>("./URL/Nome/LineEdit");
 
-			PopupFoto.Filters = new string[1] { ".jpg" };
+			PopupFoto.Filters = new string[1] { "*.jpg" };
 		}
 		public void _on_CloseButton_pressed()
 		{
@@ -163,7 +164,33 @@ namespace Onlife.CTRL
 		}
 		private void _on_FileDialog_file_selected(String path)
 		{
-			// Replace with function body.
+			AlterarFotoPerfil(path);
+		}
+		private void AlterarFotoPerfil(string caminho)
+		{
+			Nome.Text = caminho;
+			var imagem = ImportadorDeBinariosUtil.BuscarImagem("", "", caminho, false);
+			Foto.TextureNormal = imagem;
+		}
+		private void PopularFoto(string caminho)
+		{
+			var base64 = ImportadorDeBinariosUtil.ObterBase64(caminho);
+
+			if (FotoDTO == null)
+				FotoDTO = new RegistroDTO()
+				{
+					Nome = GerarNomeAleatorio("Foto"),
+					Idioma = "Português",
+					Tipo = "Imagem JPG",
+					Conteudo = base64,
+					DataInsercao = DateTime.Now,
+					Referencias = new List<RelacaoDTO>()
+				};
+			else
+			{
+				FotoDTO.Conteudo = base64;
+				FotoDTO.DataInsercao = DateTime.Now;
+			}
 		}
 		private void _on_BtnEditarURL_button_up()
 		{
@@ -190,7 +217,6 @@ namespace Onlife.CTRL
 			if (RegistroPOP == null)
 				RegistroPOP = new RegistroDTO()
 				{
-					Codigo = 0,
 					Nome = GerarNomeAleatorio(NomePopUp),
 					Idioma = "Português",
 					Tipo = "Link ou URL",
