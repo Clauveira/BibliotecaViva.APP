@@ -37,6 +37,7 @@ namespace Onlife.CTRL
 		private IConsultarRegistroBLL ConsultarRegistroBLL { get; set; }
 		private ICadastrarRegistroBLL CadastrarRegistroBLL { get; set; }
 		private AcceptDialog PopupFeedback { get; set; }
+		private FileDialog PopupFoto { get; set; }
 		private Popup PopupURL { get; set; }
 		private Label TituloURL { get; set; }
 		private LineEdit URL { get; set; }
@@ -47,7 +48,13 @@ namespace Onlife.CTRL
 			//DefinirTitulo();
 			PoularNodes();
 			RealizarInjecaoDeDependencias();
+			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = false;
+		}
+		private void DesativarFuncoesDeAltoProcessamento()
+		{
+			SetPhysicsProcess(false);
+			SetProcess(false);
 		}
 		private void DefinirTitulo()
 		{
@@ -61,7 +68,6 @@ namespace Onlife.CTRL
 			ConsultarPessoaBLL = new ConsultarPessoaBLL();
 			TipoBLL = new ConsultarTipoBLL();
 			ConsultarRegistroBLL = new ConsultarRegistroBLL();
-			
 		}
 		private void PoularNodes()
 		{
@@ -74,12 +80,11 @@ namespace Onlife.CTRL
 
 			PopupURL = GetNode<Popup>("./URL");
 			PopupFeedback = GetNode<AcceptDialog>("./Atencao");
+			PopupFoto = GetNode<FileDialog>("./FileDialog");
 			TituloURL = GetNode<Label>("./URL/Nome/Label");
 			URL = GetNode<LineEdit>("./URL/Nome/LineEdit");
-		}
-		public override void _Process(float delta)
-		{
-			
+
+			PopupFoto.Filters = new string[1] { ".jpg" };
 		}
 		public void _on_CloseButton_pressed()
 		{
@@ -125,11 +130,11 @@ namespace Onlife.CTRL
 			{
 				CallDeferred("Feedback", ex.Message, false);
 			}
-		}
-		
+		}	
 		private void _on_Foto_button_up()
 		{
-			
+			if (EmEdicao)
+				PopupFoto.Popup_();
 		}
 		private void _on_ID_button_up()
 		{
@@ -155,6 +160,10 @@ namespace Onlife.CTRL
 		private void _on_BtnConexoes_button_up()
 		{
 			//Task.Run(async () => await TabBuscar.BuscarRelacoes(Pessoa, Coluna, this));
+		}
+		private void _on_FileDialog_file_selected(String path)
+		{
+			// Replace with function body.
 		}
 		private void _on_BtnEditarURL_button_up()
 		{

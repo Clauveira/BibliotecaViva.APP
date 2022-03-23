@@ -286,6 +286,18 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 text = "SALVAR"
 
+[node name="FileDialog" type="FileDialog" parent="." index="5"]
+self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
+margin_left = 51.0
+margin_top = -112.0
+margin_right = 638.0
+margin_bottom = 448.0
+window_title = "Escolha a Foto"
+mode = 0
+access = 2
+current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
+current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
+
 [connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/MarginContainer/Borda/Foto" to="." method="_on_Foto_button_up"]
 [connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer/ID" to="." method="_on_ID_button_up"]
 [connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer/Lattes" to="." method="_on_Lattes_button_up"]
@@ -293,3 +305,4 @@ text = "SALVAR"
 [connection signal="button_up" from="Conteudo/HBoxContainer/LabelInput/HBoxContainer2/BtnEditar" to="." method="_on_BtnEditar_button_up"]
 [connection signal="button_up" from="Conteudo/HBoxContainer/LabelInput/HBoxContainer2/BtnConexoes" to="." method="_on_BtnConexoes_button_up"]
 [connection signal="button_up" from="URL/Nome/BtnEditarURL" to="." method="_on_BtnEditarURL_button_up"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
