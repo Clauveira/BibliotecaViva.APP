@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Janela.tscn" type="PackedScene" id=2]
 
@@ -35,11 +35,20 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+
 [node name="JanelaRegistro" instance=ExtResource( 2 )]
 margin_left = -212.0
 margin_top = -461.0
 margin_right = 288.0
-margin_bottom = 404.0
+margin_bottom = -53.0
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 474.0
@@ -55,7 +64,7 @@ custom_constants/margin_bottom = 20
 margin_left = 26.0
 margin_top = 20.0
 margin_right = 474.0
-margin_bottom = 845.0
+margin_bottom = 388.0
 
 [node name="Nome" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="0"]
 margin_right = 448.0
@@ -126,19 +135,20 @@ margin_bottom = 125.0
 rect_min_size = Vector2( 0, 100 )
 wrap_enabled = true
 
-[node name="Conteudo" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="4"]
+[node name="ConteudoTXT" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="4"]
+visible = false
 margin_top = 328.0
 margin_right = 448.0
 margin_bottom = 753.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Conteudo" index="0"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConteudoTXT" index="0"]
 margin_right = 448.0
 margin_bottom = 17.0
 text = "Conteúdo"
 
-[node name="LineEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/Conteudo" index="1"]
+[node name="LineEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/ConteudoTXT" index="1"]
 margin_top = 25.0
 margin_right = 448.0
 margin_bottom = 425.0
@@ -146,13 +156,159 @@ rect_min_size = Vector2( 0, 400 )
 wrap_enabled = true
 caret_blink = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="5"]
-margin_top = 761.0
+[node name="ConteudoAUDIO" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="5"]
+visible = false
+margin_top = 328.0
 margin_right = 448.0
-margin_bottom = 801.0
+margin_bottom = 393.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConteudoAUDIO" index="0"]
+margin_right = 448.0
+margin_bottom = 17.0
+text = "Conteúdo"
+
+[node name="Controles" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConteudoAUDIO" index="1"]
+margin_top = 25.0
+margin_right = 448.0
+margin_bottom = 65.0
+
+[node name="BtnPlay" type="Button" parent="MarginContainer/VBoxContainer/ConteudoAUDIO/Controles" index="0"]
+margin_right = 79.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 8
+size_flags_vertical = 14
+custom_colors/font_color_disabled = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "PLAY"
+expand_icon = true
+
+[node name="BtnStop" type="Button" parent="MarginContainer/VBoxContainer/ConteudoAUDIO/Controles" index="1"]
+margin_left = 87.0
+margin_right = 167.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 8
+size_flags_vertical = 14
+custom_colors/font_color_disabled = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "STOP"
+
+[node name="ConteudoURL" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="6"]
+visible = false
+margin_top = 328.0
+margin_right = 448.0
+margin_bottom = 393.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConteudoURL" index="0"]
+margin_right = 448.0
+margin_bottom = 17.0
+text = "Conteúdo"
+
+[node name="Controles" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConteudoURL" index="1"]
+margin_top = 25.0
+margin_right = 448.0
+margin_bottom = 65.0
+
+[node name="BtnAcessar" type="Button" parent="MarginContainer/VBoxContainer/ConteudoURL/Controles" index="0"]
+margin_right = 108.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 8
+size_flags_vertical = 14
+custom_colors/font_color_disabled = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "ACESSAR"
+
+[node name="ConteudoBIN" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="7"]
+visible = false
+margin_top = 328.0
+margin_right = 448.0
+margin_bottom = 393.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConteudoBIN" index="0"]
+margin_right = 448.0
+margin_bottom = 17.0
+text = "Conteúdo"
+
+[node name="Controles" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConteudoBIN" index="1"]
+margin_top = 25.0
+margin_right = 448.0
+margin_bottom = 65.0
+
+[node name="BtnDOWNLOAD" type="Button" parent="MarginContainer/VBoxContainer/ConteudoBIN/Controles" index="0"]
+margin_right = 137.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 8
+size_flags_vertical = 14
+custom_colors/font_color_disabled = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = "DOWNLOAD"
+
+[node name="ConteudoIMG" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="8"]
+visible = false
+margin_top = 328.0
+margin_right = 448.0
+margin_bottom = 753.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConteudoIMG" index="0"]
+margin_right = 448.0
+margin_bottom = 17.0
+text = "Conteúdo"
+
+[node name="Borda" type="Panel" parent="MarginContainer/VBoxContainer/ConteudoIMG" index="1"]
+margin_top = 25.0
+margin_right = 448.0
+margin_bottom = 425.0
+rect_min_size = Vector2( 448, 400 )
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Imagem" type="TextureButton" parent="MarginContainer/VBoxContainer/ConteudoIMG/Borda" index="0"]
+margin_right = 448.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 448, 400 )
+
+[node name="Comandos" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="9"]
+margin_top = 328.0
+margin_right = 448.0
+margin_bottom = 368.0
 alignment = 1
 
-[node name="BtnEditar" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+[node name="BtnEditar" type="Button" parent="MarginContainer/VBoxContainer/Comandos" index="0"]
 margin_left = 51.0
 margin_right = 147.0
 margin_bottom = 40.0
@@ -170,7 +326,7 @@ custom_styles/focus = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 text = "EDITAR"
 
-[node name="BtnExibir" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+[node name="BtnExibir" type="Button" parent="MarginContainer/VBoxContainer/Comandos" index="1"]
 margin_left = 155.0
 margin_right = 264.0
 margin_bottom = 40.0
@@ -188,7 +344,7 @@ custom_styles/focus = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 text = "RESUMIR"
 
-[node name="BtnConexoes" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="2"]
+[node name="BtnConexoes" type="Button" parent="MarginContainer/VBoxContainer/Comandos" index="2"]
 margin_left = 272.0
 margin_right = 397.0
 margin_bottom = 40.0
