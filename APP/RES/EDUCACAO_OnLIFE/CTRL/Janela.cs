@@ -51,14 +51,6 @@ namespace Onlife.CTRL
 			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = false;
 			DefinirEmEdicao();
-			PopularDados(new PessoaDTO()
-			{
-				Codigo = 5,
-				Nome = "Rodrigo",
-				Sobrenome = "Medeiros",
-				Apelido = "",
-				Genero = "Prefiro Não Declarar"
-			});
 		}
 		public void PopularDados(PessoaDTO pessoaDTO)
 		{
