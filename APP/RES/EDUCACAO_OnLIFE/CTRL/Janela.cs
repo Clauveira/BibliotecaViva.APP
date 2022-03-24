@@ -123,7 +123,14 @@ namespace Onlife.CTRL
 		{
 			try
 			{
-				var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, "Prefiro não Declarar", Apelido.Text, CodPessoa, new List<RelacaoDTO>());
+				if (CodPessoa == 0)
+				{
+					var preCadastro = RegistrarPessoa(new List<RelacaoDTO>());
+					var preCadastroProcessado = preCadastro.Split(" ");
+					CodPessoa = Convert.ToInt32(preCadastroProcessado[0]);
+				}
+				var relacoes = CadastrarDadosComplementares();
+				var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, "Prefiro não Declarar", Apelido.Text, CodPessoa, relacoes);
 				var retorno = CadastroPessoaBLL.CadastrarPessoa(pessoa);
 				CallDeferred("Feedback", retorno, true);
 			}
@@ -131,6 +138,58 @@ namespace Onlife.CTRL
 			{
 				CallDeferred("Feedback", ex.Message, false);
 			}
+		}
+		private string RegistrarPessoa(List<RelacaoDTO> relacoes)
+		{
+			var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, "Prefiro não Declarar", Apelido.Text, CodPessoa, relacoes);
+			return CadastroPessoaBLL.CadastrarPessoa(pessoa);
+		}
+		private List<RelacaoDTO> CadastrarDadosComplementares()
+		{
+			var relacaoFoto = ObterRelacao(FotoDTO);
+			var relacaoLattes = ObterRelacao(LattesDTO);
+			var relacaoResearchGate = ObterRelacao(ResearchGateDTO);
+			var relacaoID = ObterRelacao(IDDTO);
+
+			var relacoes = new List<RelacaoDTO>();
+			if (relacaoFoto != null)
+				relacoes.Add(relacaoFoto);
+			if (relacaoLattes != null)
+				relacoes.Add(relacaoLattes);
+			if (relacaoResearchGate != null)
+				relacoes.Add(relacaoResearchGate);
+			if (relacaoID != null)
+				relacoes.Add(relacaoID);
+
+			return relacoes;
+		}
+		private RelacaoDTO ObterRelacao(RegistroDTO registroDTO)
+		{
+			if (registroDTO != null)
+			{
+				var retorno = CadastrarRegistroBLL.CadastrarRegistro(registroDTO);
+				var retornoProcessado = retorno.Split(" ");
+				return new RelacaoDTO()
+				{
+					RegistroPessoaID = CodPessoa,
+					RelacaoID = Convert.ToInt32(retornoProcessado[0]),
+					TipoRelacao = "Autor"
+				};
+			}
+			return null;
+		}
+		private RegistroDTO CadastrarRegistro(RegistroDTO registroDTO)
+		{
+			if (registroDTO != null)
+			{
+				var retorno = CadastrarRegistroBLL.CadastrarRegistro(registroDTO);
+				if (registroDTO.Codigo == 0)
+				{
+					var retornoProcessado = retorno.Split(" ");
+					registroDTO.Codigo = Convert.ToInt32(retornoProcessado[0]);
+				}	
+			}
+			return registroDTO;
 		}	
 		private void _on_Foto_button_up()
 		{
