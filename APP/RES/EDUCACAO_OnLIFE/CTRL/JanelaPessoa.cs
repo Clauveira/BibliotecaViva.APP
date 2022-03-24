@@ -25,6 +25,7 @@ public class JanelaPessoa : MarginContainer
     public override void _Ready()
     {
         PopularNodes();
+        Nome.Text = "Nome Completo da Pessoa Vindo do Banco";
     }
     private void RealizarInjecaoDeDependencias()
     {

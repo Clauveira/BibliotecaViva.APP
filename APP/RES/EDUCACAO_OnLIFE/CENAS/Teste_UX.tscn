@@ -1,17 +1,21 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/LightTheme.tres" type="Theme" id=2]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/FONTES/Lato-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/PaginaMapa.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Logo_CAPES.svg" type="Texture" id=5]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Rodape.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Teste_UX.cs" type="Script" id=6]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/Rodape.tres" type="Theme" id=7]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Logo Sem Sigla.png" type="Texture" id=8]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/Map.png" type="Texture" id=9]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Logo GPe-dU Internacional.png" type="Texture" id=7]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/CAPES.png" type="Texture" id=8]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/MapaPergaminho.png" type="Texture" id=9]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/COMPONENTES/Balloom.tscn" type="PackedScene" id=10]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/COMPONENTES/BotaoAbrirMapa.cs" type="Script" id=11]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/Pagina.cs" type="Script" id=12]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/CNPq.png" type="Texture" id=13]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Logo_Itau_Social_rgb_transparente-1.png" type="Texture" id=14]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/LOGOS/Fundação Carlos Chagas.png" type="Texture" id=15]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/OpenSans-Regular.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
@@ -33,6 +37,15 @@ font_data = ExtResource( 3 )
 [sub_resource type="DynamicFont" id=3]
 size = 44
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 21
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="Theme" id=13]
+Label/colors/font_color = Color( 1, 0, 0, 1 )
+Label/fonts/font = SubResource( 12 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 
@@ -77,9 +90,9 @@ current = true
 script = ExtResource( 12 )
 
 [node name="PaginaMapa" parent="Pagina" instance=ExtResource( 4 )]
+visible = false
 
 [node name="PaginaIndex" type="Panel" parent="Pagina"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -97,17 +110,18 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2"]
-margin_right = 1920.0
-margin_bottom = 1942.0
+margin_right = 1912.0
+margin_bottom = 3102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sobre" type="MarginContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer"]
 margin_right = 1912.0
-margin_bottom = 1726.0
+margin_bottom = 1902.0
 custom_constants/margin_right = 100
 custom_constants/margin_top = 200
 custom_constants/margin_left = 100
@@ -117,7 +131,7 @@ custom_constants/margin_bottom = 0
 margin_left = 100.0
 margin_top = 200.0
 margin_right = 1812.0
-margin_bottom = 1726.0
+margin_bottom = 1902.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer"]
 margin_right = 1712.0
@@ -126,7 +140,7 @@ theme = SubResource( 6 )
 custom_fonts/bold_font = SubResource( 2 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[wave][b][color=black]O que te conecta?[/color][/b][/wave]
+bbcode_text = "[wave][b][color=red]O que te conecta?[/color][/b][/wave]
 "
 text = "O que te conecta?
 "
@@ -169,10 +183,134 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MarginContainer2" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer"]
+margin_top = 1534.0
+margin_right = 1712.0
+margin_bottom = 1654.0
+rect_min_size = Vector2( 0, 120 )
+theme = SubResource( 13 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2"]
+margin_right = 476.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer3"]
+margin_right = 130.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.4
+text = "REALIZAÇÃO:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer3"]
+margin_left = 150.0
+margin_right = 476.0
+margin_bottom = 120.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2"]
+margin_left = 484.0
+margin_right = 1079.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer4"]
+margin_right = 146.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+text = "APOIO:"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer4"]
+margin_left = 166.0
+margin_right = 282.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer4"]
+margin_left = 302.0
+margin_right = 595.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2"]
+margin_left = 1087.0
+margin_right = 1712.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.05
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer6"]
+margin_right = 175.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+text = "FINANCIAMENTO:"
+align = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer6"]
+margin_left = 195.0
+margin_right = 400.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer/MarginContainer2/HBoxContainer6"]
+margin_left = 420.0
+margin_right = 625.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Sobre/VBoxContainer"]
+margin_top = 1662.0
+margin_right = 1712.0
+margin_bottom = 1702.0
+rect_min_size = Vector2( 0, 40 )
+
 [node name="PanelContainer" type="PanelContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer"]
-margin_top = 1734.0
+margin_top = 1902.0
 margin_right = 1912.0
-margin_bottom = 2734.0
+margin_bottom = 2902.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 7 )
 
@@ -309,200 +447,12 @@ margin_right = -18.0
 margin_bottom = -92.0
 script = ExtResource( 11 )
 
-[node name="Rodape" type="Panel" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer"]
-margin_top = 2742.0
+[node name="Rodape" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 2902.0
 margin_right = 1912.0
-margin_bottom = 2942.0
-rect_min_size = Vector2( 0, 200 )
-theme = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -58.5
-margin_bottom = 58.5
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer"]
-margin_right = 472.0
-margin_bottom = 117.0
-size_flags_horizontal = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer"]
-margin_left = 76.0
-margin_right = 152.0
-margin_bottom = 17.0
-size_flags_vertical = 0
-text = "CONTATO: "
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer"]
-margin_left = 160.0
-margin_right = 396.0
-margin_bottom = 117.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 236.0
-margin_bottom = 17.0
-text = "+ 55 51 35911100"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 25.0
-margin_right = 236.0
-margin_bottom = 42.0
-text = "Universidade do Vale do Rio dos Sinos"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 50.0
-margin_right = 236.0
-margin_bottom = 67.0
-text = "Av. Unisinos, 950"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label4" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 75.0
-margin_right = 236.0
-margin_bottom = 92.0
-text = "Cristo Rei"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label5" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 100.0
-margin_right = 236.0
-margin_bottom = 117.0
-text = "93022000 - São Leopoldo, RS, Brasil"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer"]
-margin_left = 480.0
-margin_right = 952.0
-margin_bottom = 117.0
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="HBoxContainer2" type="VBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer5"]
-margin_left = 177.0
-margin_right = 294.0
-margin_bottom = 117.0
-
-[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer5/HBoxContainer2"]
-margin_right = 117.0
-margin_bottom = 17.0
-text = "SOBRE NÓS"
-
-[node name="Label2" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer5/HBoxContainer2"]
-margin_top = 25.0
-margin_right = 117.0
-margin_bottom = 42.0
-text = "EQUIPE"
-
-[node name="Label3" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer5/HBoxContainer2"]
-margin_top = 50.0
-margin_right = 117.0
-margin_bottom = 67.0
-text = "GPe-dU UNISINOS"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer"]
-margin_left = 960.0
-margin_right = 1432.0
-margin_bottom = 117.0
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer3"]
-margin_right = 185.0
-margin_bottom = 17.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.4
-text = "REALIZAÇÃO:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer3"]
-margin_left = 193.0
-margin_right = 472.0
-margin_bottom = 117.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-size_flags_stretch_ratio = 0.6
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer"]
-margin_left = 1440.0
-margin_right = 1912.0
-margin_bottom = 117.0
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer4"]
-margin_right = 154.0
-margin_bottom = 117.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.5
-text = "APOIO:"
-align = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer4"]
-margin_left = 162.0
-margin_right = 472.0
-margin_bottom = 117.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_constants/margin_right = 30
-custom_constants/margin_top = 16
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 16
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Pagina/PaginaIndex/PaginaIndex2/VBoxContainer/Rodape/HBoxContainer/HBoxContainer4/MarginContainer"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 280.0
-margin_bottom = 101.0
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
+margin_bottom = 3102.0
 
 [node name="Interface" type="CanvasLayer" parent="."]
 

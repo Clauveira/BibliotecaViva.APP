@@ -69,6 +69,7 @@ margin_left = 29.0
 margin_top = 6.0
 margin_right = 616.0
 margin_bottom = 1016.0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource( 1 )
 expand = true
