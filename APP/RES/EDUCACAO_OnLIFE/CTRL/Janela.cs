@@ -52,6 +52,28 @@ namespace Onlife.CTRL
 			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = false;
 		}
+		public void PopularDados(PessoaDTO pessoaDTO)
+		{
+			CodPessoa = pessoaDTO.Codigo;
+			Nome.Text = pessoaDTO.Nome;
+			Sobrenome.Text = pessoaDTO.Sobrenome;
+			Apelido.Text = pessoaDTO.Apelido;
+			var relacoes = ConsultarPessoaBLL.RealizarConsultaDeRegistrosRelacionados(new RelacaoConsulta(CodPessoa));
+			FotoDTO = ObterRegistroEspecifico(relacoes, "Foto");
+			LattesDTO = ObterRegistroEspecifico(relacoes, "Lattes");
+			ResearchGateDTO = ObterRegistroEspecifico(relacoes, "ResearchGate");
+			IDDTO = ObterRegistroEspecifico(relacoes, "ID");
+			Foto.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(FotoDTO.Nome, ".jpg", FotoDTO.Conteudo);
+			EmEdicao = false;
+		}
+		private RegistroDTO ObterRegistroEspecifico(List<RegistroDTO> relacoes, string parametroNoNome)
+		{
+			return (from relacao in relacoes
+				where
+					relacao.Nome.Contains(parametroNoNome)
+				select
+					relacao).FirstOrDefault();
+		}
 		private void DesativarFuncoesDeAltoProcessamento()
 		{
 			SetPhysicsProcess(false);
@@ -199,7 +221,7 @@ namespace Onlife.CTRL
 		private void _on_ID_button_up()
 		{
 			if (EmEdicao)
-				AbirPopupDeAlteracaoURL(IDDTO, "Lattes");
+				AbirPopupDeAlteracaoURL(IDDTO, "ID");
 			else
 				AbrirURL(IDDTO);
 		}
