@@ -87,10 +87,11 @@ namespace Onlife.CTRL
 		}
 		private void RealizarInjecaoDeDependencias()
 		{
+			TipoBLL = new ConsultarTipoBLL();
 			CadastroPessoaBLL = new CadastrarPessoaBLL();
 			ConsultarPessoaBLL = new ConsultarPessoaBLL();
-			TipoBLL = new ConsultarTipoBLL();
 			ConsultarRegistroBLL = new ConsultarRegistroBLL();
+			CadastrarRegistroBLL = new CadastrarRegistroBLL();
 		}
 		private void PoularNodes()
 		{
@@ -275,6 +276,7 @@ namespace Onlife.CTRL
 		private void _on_BtnEditarURL_button_up()
 		{
 			AlterarURL();
+			PopupURL.Hide();
 		}
 		private void AbrirURL(RegistroDTO registro)
 		{
@@ -285,10 +287,7 @@ namespace Onlife.CTRL
 		{
 			TituloURL.Text = "Por favor insira a URL do " + nome;
 			NomePopUp = nome;
-			
-			if (registro != null)
-				URL.Text = registro.Conteudo;
-
+			URL.Text = registro != null ? registro.Conteudo : string.Empty;
 			PopupURL.Popup_();
 		}
 		private void AlterarURL()
@@ -296,18 +295,17 @@ namespace Onlife.CTRL
 			switch(NomePopUp)
 			{
 				case ("ID"):
-					ProcessarRegistroDTO(IDDTO);
+					IDDTO = ProcessarRegistroDTO(IDDTO);
 					break;
 				case ("Lattes"):
-					ProcessarRegistroDTO(LattesDTO);
+					LattesDTO = ProcessarRegistroDTO(LattesDTO);
 					break;
 				case ("ResearchGate"):
-					ProcessarRegistroDTO(ResearchGateDTO);
+					ResearchGateDTO = ProcessarRegistroDTO(ResearchGateDTO);
 					break;
-			}
-			
+			}	
 		}
-		private void ProcessarRegistroDTO(RegistroDTO registroDTO)
+		private RegistroDTO ProcessarRegistroDTO(RegistroDTO registroDTO)
 		{
 			if (registroDTO == null)
 				registroDTO = new RegistroDTO()
@@ -324,6 +322,7 @@ namespace Onlife.CTRL
 				registroDTO.Conteudo = URL.Text;
 				registroDTO.DataInsercao = DateTime.Now;
 			}
+			return registroDTO;
 		}
 		private string GerarNomeAleatorio(string prefixo)
 		{
