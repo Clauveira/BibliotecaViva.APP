@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fechar.png-24707d6f50c6d843b089650372f0c879.stex"
+path="res://.import/file-document-outline-grey.png-0976d5beb98fcf148fc67deba5d1e133.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RES/ICONES/Fechar.png"
-dest_files=[ "res://.import/Fechar.png-24707d6f50c6d843b089650372f0c879.stex" ]
+source_file="res://RES/EDUCACAO_OnLIFE/ICONES/file-document-outline-grey.png"
+dest_files=[ "res://.import/file-document-outline-grey.png-0976d5beb98fcf148fc67deba5d1e133.stex" ]
 
 [params]
 

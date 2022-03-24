@@ -11,6 +11,9 @@
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
+shadow_color = Color( 0, 0, 0, 0.0392157 )
+shadow_size = 6
+shadow_offset = Vector2( 1, 2 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "Expandir"
@@ -55,7 +58,7 @@ tracks/3/path = NodePath("InterfaceExpandida/Rodape:margin_top")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -118,7 +121,7 @@ tracks/2/path = NodePath("InterfaceExpandida/Rodape:margin_top")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -205,7 +208,7 @@ tracks/3/path = NodePath("InterfaceExpandida/Rodape:margin_top")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -265,6 +268,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 
 [node name="CloseButton" type="TextureButton" parent="InterfaceExpandida/MenuSuperior"]
+modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -282,6 +286,7 @@ __meta__ = {
 }
 
 [node name="Rodape" parent="InterfaceExpandida" instance=ExtResource( 2 )]
+visible = false
 anchor_top = 1.0
 margin_top = 890.0
 rect_clip_content = true

@@ -20,11 +20,11 @@ public class PainelDeFundo : Panel
 
     private void mover_mapa()
     {
-        if (Input.IsActionJustPressed("clique_scroll"))
+        if (Input.IsActionJustPressed("mover_mapa"))
         {
             posicaoAnteriorMouse = (OffsetNode.GetLocalMousePosition() * OffsetNode.RectScale);
         }
-        if (Input.IsActionPressed("clique_scroll"))
+        if (Input.IsActionPressed("mover_mapa"))
         {
             OffsetNode.RectPosition += (OffsetNode.GetLocalMousePosition() * OffsetNode.RectScale - posicaoAnteriorMouse);
         }
@@ -49,6 +49,20 @@ public class PainelDeFundo : Panel
 
             OffsetNode.RectScale *= 0.9f;
         }
+        if (Input.IsActionJustReleased("restaurar_zoom"))
+        {
+            reset_zoom();
+        }
     }
+
+    public void reset_zoom()
+    {
+        OffsetNode.RectScale = new Vector2(1, 1);
+    }
+    public void _on_PaginaMapa_visibility_changed()
+    {
+        reset_zoom();
+    }
+
 
 }
