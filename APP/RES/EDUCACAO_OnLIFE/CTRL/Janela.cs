@@ -42,7 +42,6 @@ namespace Onlife.CTRL
 		private Popup PopupURL { get; set; }
 		private Label TituloURL { get; set; }
 		private LineEdit URL { get; set; }
-		private RegistroDTO RegistroPOP { get; set; }
 		private string NomePopUp { get ; set; }
 		public override void _Ready()
 		{
@@ -51,6 +50,7 @@ namespace Onlife.CTRL
 			RealizarInjecaoDeDependencias();
 			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = false;
+			DefinirEmEdicao();
 		}
 		public void PopularDados(PessoaDTO pessoaDTO)
 		{
@@ -152,8 +152,7 @@ namespace Onlife.CTRL
 					CodPessoa = Convert.ToInt32(preCadastroProcessado[0]);
 				}
 				var relacoes = CadastrarDadosComplementares();
-				var pessoa = CadastroPessoaBLL.PopularPessoa(Nome.Text, Sobrenome.Text, "Prefiro não Declarar", Apelido.Text, CodPessoa, relacoes);
-				var retorno = CadastroPessoaBLL.CadastrarPessoa(pessoa);
+				var retorno = RegistrarPessoa(relacoes);
 				CallDeferred("Feedback", retorno, true);
 			}
 			catch(Exception ex)
@@ -249,9 +248,9 @@ namespace Onlife.CTRL
 		}
 		private void AlterarFotoPerfil(string caminho)
 		{
-			Nome.Text = caminho;
 			var imagem = ImportadorDeBinariosUtil.BuscarImagem("", "", caminho, false);
 			Foto.TextureNormal = imagem;
+			PopularFoto(caminho);
 		}
 		private void PopularFoto(string caminho)
 		{
@@ -285,18 +284,33 @@ namespace Onlife.CTRL
 		private void AbirPopupDeAlteracaoURL(RegistroDTO registro, string nome)
 		{
 			TituloURL.Text = "Por favor insira a URL do " + nome;
-			RegistroPOP = registro;
 			NomePopUp = nome;
 			
-			if (RegistroPOP != null)
-				URL.Text = RegistroPOP.Conteudo;
-			
+			if (registro != null)
+				URL.Text = registro.Conteudo;
+
 			PopupURL.Popup_();
 		}
 		private void AlterarURL()
 		{
-			if (RegistroPOP == null)
-				RegistroPOP = new RegistroDTO()
+			switch(NomePopUp)
+			{
+				case ("ID"):
+					ProcessarRegistroDTO(IDDTO);
+					break;
+				case ("Lattes"):
+					ProcessarRegistroDTO(LattesDTO);
+					break;
+				case ("ResearchGate"):
+					ProcessarRegistroDTO(ResearchGateDTO);
+					break;
+			}
+			
+		}
+		private void ProcessarRegistroDTO(RegistroDTO registroDTO)
+		{
+			if (registroDTO == null)
+				registroDTO = new RegistroDTO()
 				{
 					Nome = GerarNomeAleatorio(NomePopUp),
 					Idioma = "Português",
@@ -307,8 +321,8 @@ namespace Onlife.CTRL
 				};
 			else
 			{
-				RegistroPOP.Conteudo = URL.Text;
-				RegistroPOP.DataInsercao = DateTime.Now;
+				registroDTO.Conteudo = URL.Text;
+				registroDTO.DataInsercao = DateTime.Now;
 			}
 		}
 		private string GerarNomeAleatorio(string prefixo)
