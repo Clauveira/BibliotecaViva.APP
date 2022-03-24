@@ -42,7 +42,7 @@ namespace BibliotecaViva.BLL.Utils
             var texturaDaImagem = new ImageTexture();
             var caminhoComFormato = caminho + nomeImagem;
             if (!string.IsNullOrEmpty(formato))
-                caminhoComFormato = "." + formato;
+                caminhoComFormato += "." + formato;
             var caminhoImport = caminhoComFormato + ".import";
 
             imagem.Load(caminhoComFormato);

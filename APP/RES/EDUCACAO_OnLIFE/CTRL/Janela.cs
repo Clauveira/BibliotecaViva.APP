@@ -51,6 +51,14 @@ namespace Onlife.CTRL
 			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = false;
 			DefinirEmEdicao();
+			PopularDados(new PessoaDTO()
+			{
+				Codigo = 5,
+				Nome = "Rodrigo",
+				Sobrenome = "Medeiros",
+				Apelido = "",
+				Genero = "Prefiro Não Declarar"
+			});
 		}
 		public void PopularDados(PessoaDTO pessoaDTO)
 		{
@@ -63,8 +71,9 @@ namespace Onlife.CTRL
 			LattesDTO = ObterRegistroEspecifico(relacoes, "Lattes");
 			ResearchGateDTO = ObterRegistroEspecifico(relacoes, "ResearchGate");
 			IDDTO = ObterRegistroEspecifico(relacoes, "ID");
-			Foto.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(FotoDTO.Nome, ".jpg", FotoDTO.Conteudo);
+			Foto.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(FotoDTO.Nome, "jpg", FotoDTO.Conteudo);
 			EmEdicao = false;
+			DefinirEmEdicao();
 		}
 		private RegistroDTO ObterRegistroEspecifico(List<RegistroDTO> relacoes, string parametroNoNome)
 		{
