@@ -159,6 +159,7 @@ text = "Nome"
 margin_top = 25.0
 margin_right = 229.0
 margin_bottom = 57.0
+caret_blink = true
 
 [node name="Sobrenome" type="VBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="1"]
 margin_top = 65.0
@@ -176,6 +177,7 @@ text = "Sobrenome"
 margin_top = 25.0
 margin_right = 229.0
 margin_bottom = 57.0
+caret_blink = true
 
 [node name="Apelido" type="VBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="2"]
 margin_top = 130.0
@@ -193,6 +195,7 @@ text = "Apelido"
 margin_top = 25.0
 margin_right = 229.0
 margin_bottom = 57.0
+caret_blink = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="3"]
 margin_top = 195.0
@@ -266,6 +269,7 @@ text = "URL"
 margin_top = 25.0
 margin_right = 474.0
 margin_bottom = 57.0
+caret_blink = true
 
 [node name="BtnEditarURL" type="Button" parent="URL/Nome" index="2"]
 margin_left = 375.0

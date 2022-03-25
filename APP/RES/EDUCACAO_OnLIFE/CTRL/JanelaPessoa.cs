@@ -15,7 +15,7 @@ using BibliotecaViva.BLL.Utils;
 
 namespace Onlife.CTRL
 {
-	public class JanelaPessoa : MarginContainer
+	public class JanelaPessoa : MarginContainer, IDisposableCTRL
 	{
 		public int Coluna { get; set; }
 		public int CodPessoa { get; set; }
@@ -27,10 +27,8 @@ namespace Onlife.CTRL
 		private LineEdit Nome { get; set; }
 		private LineEdit Sobrenome { get; set; }
 		private LineEdit Apelido { get; set; }
-		private Control NodoJanelas { get; set; } = null;
 		private Button Editar { get ;set; }
 		private TextureButton Foto { get; set; }
-		private string Titulo = "Nova Pista Viva";
 		private bool EmEdicao { get; set; }
 		private ICadastrarPessoaBLL CadastroPessoaBLL { get; set; }
 		private IConsultarPessoaBLL ConsultarPessoaBLL { get; set; }
@@ -51,6 +49,32 @@ namespace Onlife.CTRL
 			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = true;
 			DefinirEmEdicao();
+			(GetParent() as JanelaBase).PopularConteudo(this);
+		}
+		public void FecharCTRL()
+		{
+			Pessoa?.Dispose();
+			FotoDTO?.Dispose();
+			LattesDTO?.Dispose();
+			ResearchGateDTO?.Dispose();
+			IDDTO?.Dispose();
+			Nome.QueueFree();
+			Sobrenome.QueueFree();
+			Apelido.QueueFree();
+			Foto.QueueFree();
+			Editar.QueueFree();
+			CadastroPessoaBLL.Dispose();
+			ConsultarPessoaBLL.Dispose();
+			TipoBLL.Dispose();
+			ConsultarRegistroBLL.Dispose();
+			CadastrarRegistroBLL.Dispose();
+			PopupFeedback.QueueFree();
+			PopupFoto.QueueFree();
+			PopupURL.QueueFree();
+			TituloURL.QueueFree();
+			URL.QueueFree();
+			NomePopUp = string.Empty;
+			NomePopUp = null;
 		}
 		public void PopularDados(PessoaDTO pessoaDTO)
 		{
@@ -80,12 +104,6 @@ namespace Onlife.CTRL
 			SetPhysicsProcess(false);
 			SetProcess(false);
 		}
-		private void DefinirTitulo()
-		{
-			set_titulo(Titulo);
-			NodoJanelas = GetParent<Control>();
-			set_titulo(Titulo);
-		}
 		private void RealizarInjecaoDeDependencias()
 		{
 			TipoBLL = new ConsultarTipoBLL();
@@ -110,14 +128,6 @@ namespace Onlife.CTRL
 			URL = GetNode<LineEdit>("../URL/Nome/LineEdit");
 
 			PopupFoto.Filters = new string[1] { "*.jpg" };
-		}
-		public void _on_CloseButton_pressed()
-		{
-			QueueFree();
-		}
-		public void set_titulo(string novo_titulo)
-		{
-			GetNode<Label>("BarraDeTituloJanela/MarginContainer/Titulo").Text = Titulo;
 		}
 		private void AtivarEditacao(bool editar)
 		{
