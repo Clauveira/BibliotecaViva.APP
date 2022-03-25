@@ -3,20 +3,23 @@ using System;
 
 namespace Onlife.CTRL
 {
-	public class JanelaBase : Control
+	public class JanelaRegistro : MarginContainer
 	{
 		public override void _Ready()
 		{
 			DesativarFuncoesDeAltoProcessamento();
 		}
+		private void PopularNodes()
+		{
+
+		}
 		private void DesativarFuncoesDeAltoProcessamento()
 		{
 			SetPhysicsProcess(false);
-			SetProcess(false);
 		}
-		private void _on_CloseButton_pressed()
+		public override void _Process(float delta)
 		{
-			QueueFree();
+			
 		}
 	}
 }
