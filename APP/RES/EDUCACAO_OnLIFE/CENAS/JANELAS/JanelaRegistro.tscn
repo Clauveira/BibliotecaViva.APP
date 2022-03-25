@@ -370,7 +370,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionButton" type="OptionButton" parent="Conteudo/VBoxContainer/ConteudoTipo/Borda" index="0"]
+[node name="TipoDropdown" type="OptionButton" parent="Conteudo/VBoxContainer/ConteudoTipo/Borda" index="0"]
 margin_right = 448.0
 margin_bottom = 24.0
 
@@ -465,7 +465,7 @@ current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-On
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoBIN/Controles/BtnDOWNLOAD" to="Conteudo" method="_on_BtnDOWNLOAD_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoBIN/Controles/BtnAlterar" to="Conteudo" method="_on_BtnAlterar_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoIMG/Borda/Imagem" to="Conteudo" method="_on_Imagem_button_up"]
-[connection signal="item_selected" from="Conteudo/VBoxContainer/ConteudoTipo/Borda/OptionButton" to="Conteudo" method="_on_OptionButton_item_selected"]
+[connection signal="item_selected" from="Conteudo/VBoxContainer/ConteudoTipo/Borda/TipoDropdown" to="Conteudo" method="_on_OptionButton_item_selected"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnEditar" to="Conteudo" method="_on_BtnEditar_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnExibir" to="Conteudo" method="_on_BtnExibir_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnConexoes" to="Conteudo" method="_on_BtnConexoes_button_up"]

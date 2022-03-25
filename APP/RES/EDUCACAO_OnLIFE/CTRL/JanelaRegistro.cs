@@ -18,7 +18,8 @@ namespace Onlife.CTRL
 		public int CodigoRegistro { get; set; }
 		private bool Maximizado { get; set; }
 		private bool EmEdicao { get; set; }
-		private TipoExecucao TipoAtual { get; set; }
+		private List<TipoDTO> Tipos { get; set; }
+		private TipoDTO TipoSelecionado { get; set; }
 		private IConsultarTipoBLL BLLTipo { get; set; }
 		private ICadastrarRegistroBLL CadastrarRegistroBLL { get; set; }
 		private IConsultarRegistroBLL ConsultarRegistroBLL { get; set; }
@@ -41,13 +42,14 @@ namespace Onlife.CTRL
 		private Button BtnMaximizar { get; set; }
 		private Button BtnAlterarAudio { get; set; }
 		private Button BtnAlterarBinario { get; set; }
+		private OptionButton TipoDropdown { get; set; }
 		private AudioStreamPlayer AudioPlayer { get; set; }
 		private FileDialog PopupDeArquivo { get; set; }
 		private AcceptDialog PopupDeFeedback { get; set; }
 		public override void _Ready()
 		{
-			PopularNodes();
 			RealizarInjecaoDeDependencias();
+			PopularNodes();
 			DesativarFuncoesDeAltoProcessamento();
 			(GetParent() as JanelaBase).PopularConteudo(this);
 			AplicarMaximizar();
@@ -58,6 +60,12 @@ namespace Onlife.CTRL
 			BLLTipo.Dispose();
 			ConsultarRegistroBLL.Dispose();
 			CadastrarRegistroBLL.Dispose();
+			TipoSelecionado.Dispose();
+			foreach (var tipo in Tipos)
+				tipo.Dispose();
+			Tipos.Clear();	
+			Tipos = null;
+
 
 			ConteudoTXTContainer.QueueFree();
 			ConteudoAUDIOContainer.QueueFree();
@@ -69,6 +77,7 @@ namespace Onlife.CTRL
 			BtnEditar.QueueFree();
 			BtnAlterarAudio.QueueFree();
 			BtnAlterarBinario.QueueFree();
+			TipoDropdown.QueueFree();
 			Nome.QueueFree();
 			Apelido.QueueFree();
 			Localizacao.QueueFree();
@@ -110,9 +119,22 @@ namespace Onlife.CTRL
 			AudioPlayer = GetNode<AudioStreamPlayer>("./AudioPlayer");
 			PopupDeArquivo = GetNode<FileDialog>("./FileDialog");
 			PopupDeFeedback = GetNode<AcceptDialog>("./Atencao");
+			TipoDropdown = GetNode<OptionButton>("./VBoxContainer/ConteudoTipo/Borda/TipoDropdown");
 			Maximizado = false;
 			EmEdicao = false;
-			TipoAtual = TipoExecucao.Texto;
+			ObterTipos();
+		}
+		private void ObterTipos()
+		{
+			try
+			{
+				Tipos = BLLTipo.PopularDropDownTipo(TipoDropdown);
+				ObterDadosExtensao(TipoDropdown.GetItemText(0));
+			}
+			catch(Exception ex)
+			{
+				CallDeferred("Feedback", ex.Message, false);
+			}
 		}
 		private void DesativarFuncoesDeAltoProcessamento()
 		{
@@ -128,15 +150,23 @@ namespace Onlife.CTRL
 		}
 		private void _on_BtnExibir_button_up()
 		{
-			AlterarMaximizar();
+			try
+			{
+				AlterarMaximizar();
+			}
+			catch(Exception ex)
+			{
+				CallDeferred("Feedback", ex.Message, false);
+			}
 		}
 		private void _on_BtnConexoes_button_up()
 		{
-			// Replace with function body.
+			//Task.Run(async () => await TabBuscar.BuscarRelacoes(Pessoa, Coluna, this));
 		}
 		private void _on_OptionButton_item_selected(int index)
 		{
-			// Replace with function body.
+			ObterDadosExtensao(TipoDropdown.GetItemText(index));
+			ExibirCampo();
 		}
 		private void _on_Imagem_button_up()
 		{
@@ -186,12 +216,11 @@ namespace Onlife.CTRL
 				AlternarEdicao(false , false);
 				OcultarTodos();
 			}
-
 		}
 		private void ExibirCampo()
 		{
 			Maximizado = true;
-			switch(TipoAtual)
+			switch(TipoSelecionado.TipoExecucao)
 			{
 				case TipoExecucao.Audio:
 					ExibirRegistroDeAudio();
@@ -293,6 +322,16 @@ namespace Onlife.CTRL
 			ConteudoTXT.Editable = ativar;;
 			URL.Editable = ativar;
 			IMG.Disabled = !ativar;
+		}
+		private void ObterDadosExtensao(string nomeTipo)
+		{
+			TipoSelecionado = (from tipo in Tipos where tipo.Nome == nomeTipo select tipo).FirstOrDefault();
+		}
+		private void Feedback(string mensagem, bool sucesso)
+		{
+			var mensagemFinal = sucesso ? "Retorno: " + mensagem : "Erro: " + mensagem;
+			PopupDeFeedback.DialogText = mensagemFinal;
+			PopupDeFeedback.Popup_();
 		}
 	}
 }

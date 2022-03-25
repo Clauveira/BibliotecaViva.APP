@@ -43,7 +43,6 @@ namespace Onlife.CTRL
 		private string NomePopUp { get ; set; }
 		public override void _Ready()
 		{
-			//DefinirTitulo();
 			PoularNodes();
 			RealizarInjecaoDeDependencias();
 			DesativarFuncoesDeAltoProcessamento();
