@@ -59,7 +59,7 @@ rect_min_size = Vector2( 500, 279 )
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 474.0
 
-[node name="Conteudo" type="MarginContainer" parent="." index="2"]
+[node name="JanelaPessoa" type="MarginContainer" parent="." index="2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -69,7 +69,7 @@ custom_constants/margin_left = 26
 custom_constants/margin_bottom = 26
 script = ExtResource( 6 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Conteudo" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="JanelaPessoa" index="0"]
 margin_left = 26.0
 margin_top = 26.0
 margin_right = 474.0
@@ -80,19 +80,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Conteudo/HBoxContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="JanelaPessoa/HBoxContainer" index="0"]
 margin_right = 219.0
 margin_bottom = 235.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="Conteudo/HBoxContainer/VBoxContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="JanelaPessoa/HBoxContainer/VBoxContainer" index="0"]
 margin_right = 219.0
 margin_bottom = 192.0
 size_flags_vertical = 3
 
-[node name="Borda" type="Panel" parent="Conteudo/HBoxContainer/VBoxContainer/MarginContainer" index="0"]
+[node name="Borda" type="Panel" parent="JanelaPessoa/HBoxContainer/VBoxContainer/MarginContainer" index="0"]
 margin_left = 26.0
 margin_top = 6.0
 margin_right = 193.0
@@ -102,41 +102,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Foto" type="TextureButton" parent="Conteudo/HBoxContainer/VBoxContainer/MarginContainer/Borda" index="0"]
+[node name="Foto" type="TextureButton" parent="JanelaPessoa/HBoxContainer/VBoxContainer/MarginContainer/Borda" index="0"]
 margin_right = 167.0
 margin_bottom = 180.0
 texture_normal = ExtResource( 5 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Conteudo/HBoxContainer/VBoxContainer" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="JanelaPessoa/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 200.0
 margin_right = 219.0
 margin_bottom = 235.0
 custom_constants/separation = 14
 alignment = 1
 
-[node name="ID" type="TextureButton" parent="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+[node name="ID" type="TextureButton" parent="JanelaPessoa/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
 margin_left = 43.0
 margin_right = 77.0
 margin_bottom = 35.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 
-[node name="Lattes" type="TextureButton" parent="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+[node name="Lattes" type="TextureButton" parent="JanelaPessoa/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
 margin_left = 91.0
 margin_right = 126.0
 margin_bottom = 35.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 4 )
 
-[node name="ResearchGate" type="TextureButton" parent="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer" index="2"]
+[node name="ResearchGate" type="TextureButton" parent="JanelaPessoa/HBoxContainer/VBoxContainer/HBoxContainer" index="2"]
 margin_left = 140.0
 margin_right = 175.0
 margin_bottom = 35.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 3 )
 
-[node name="LabelInput" type="VBoxContainer" parent="Conteudo/HBoxContainer" index="1"]
+[node name="LabelInput" type="VBoxContainer" parent="JanelaPessoa/HBoxContainer" index="1"]
 margin_left = 219.0
 margin_right = 448.0
 margin_bottom = 235.0
@@ -144,66 +144,66 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="Nome" type="VBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="0"]
+[node name="Nome" type="VBoxContainer" parent="JanelaPessoa/HBoxContainer/LabelInput" index="0"]
 margin_right = 229.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="Label" type="Label" parent="Conteudo/HBoxContainer/LabelInput/Nome" index="0"]
+[node name="Label" type="Label" parent="JanelaPessoa/HBoxContainer/LabelInput/Nome" index="0"]
 margin_right = 229.0
 margin_bottom = 17.0
 text = "Nome"
 
-[node name="LineEdit" type="LineEdit" parent="Conteudo/HBoxContainer/LabelInput/Nome" index="1"]
+[node name="LineEdit" type="LineEdit" parent="JanelaPessoa/HBoxContainer/LabelInput/Nome" index="1"]
 margin_top = 25.0
 margin_right = 229.0
 margin_bottom = 57.0
 caret_blink = true
 
-[node name="Sobrenome" type="VBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="1"]
+[node name="Sobrenome" type="VBoxContainer" parent="JanelaPessoa/HBoxContainer/LabelInput" index="1"]
 margin_top = 65.0
 margin_right = 229.0
 margin_bottom = 122.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="Label" type="Label" parent="Conteudo/HBoxContainer/LabelInput/Sobrenome" index="0"]
+[node name="Label" type="Label" parent="JanelaPessoa/HBoxContainer/LabelInput/Sobrenome" index="0"]
 margin_right = 229.0
 margin_bottom = 17.0
 text = "Sobrenome"
 
-[node name="LineEdit" type="LineEdit" parent="Conteudo/HBoxContainer/LabelInput/Sobrenome" index="1"]
+[node name="LineEdit" type="LineEdit" parent="JanelaPessoa/HBoxContainer/LabelInput/Sobrenome" index="1"]
 margin_top = 25.0
 margin_right = 229.0
 margin_bottom = 57.0
 caret_blink = true
 
-[node name="Apelido" type="VBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="2"]
+[node name="Apelido" type="VBoxContainer" parent="JanelaPessoa/HBoxContainer/LabelInput" index="2"]
 margin_top = 130.0
 margin_right = 229.0
 margin_bottom = 187.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="Label" type="Label" parent="Conteudo/HBoxContainer/LabelInput/Apelido" index="0"]
+[node name="Label" type="Label" parent="JanelaPessoa/HBoxContainer/LabelInput/Apelido" index="0"]
 margin_right = 229.0
 margin_bottom = 17.0
 text = "Apelido"
 
-[node name="LineEdit" type="LineEdit" parent="Conteudo/HBoxContainer/LabelInput/Apelido" index="1"]
+[node name="LineEdit" type="LineEdit" parent="JanelaPessoa/HBoxContainer/LabelInput/Apelido" index="1"]
 margin_top = 25.0
 margin_right = 229.0
 margin_bottom = 57.0
 caret_blink = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Conteudo/HBoxContainer/LabelInput" index="3"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="JanelaPessoa/HBoxContainer/LabelInput" index="3"]
 margin_top = 195.0
 margin_right = 229.0
 margin_bottom = 235.0
 alignment = 2
 
-[node name="BtnEditar" type="Button" parent="Conteudo/HBoxContainer/LabelInput/HBoxContainer2" index="0"]
+[node name="BtnEditar" type="Button" parent="JanelaPessoa/HBoxContainer/LabelInput/HBoxContainer2" index="0"]
 margin_right = 96.0
 margin_bottom = 40.0
 mouse_default_cursor_shape = 2
@@ -220,7 +220,7 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 text = "EDITAR"
 
-[node name="BtnConexoes" type="Button" parent="Conteudo/HBoxContainer/LabelInput/HBoxContainer2" index="1"]
+[node name="BtnConexoes" type="Button" parent="JanelaPessoa/HBoxContainer/LabelInput/HBoxContainer2" index="1"]
 margin_left = 104.0
 margin_right = 229.0
 margin_bottom = 40.0
@@ -304,11 +304,11 @@ access = 2
 current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
 current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
 
-[connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/MarginContainer/Borda/Foto" to="Conteudo" method="_on_Foto_button_up"]
-[connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer/ID" to="Conteudo" method="_on_ID_button_up"]
-[connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer/Lattes" to="Conteudo" method="_on_Lattes_button_up"]
-[connection signal="button_up" from="Conteudo/HBoxContainer/VBoxContainer/HBoxContainer/ResearchGate" to="Conteudo" method="_on_ResearchGate_button_up"]
-[connection signal="button_up" from="Conteudo/HBoxContainer/LabelInput/HBoxContainer2/BtnEditar" to="Conteudo" method="_on_BtnEditar_button_up"]
-[connection signal="button_up" from="Conteudo/HBoxContainer/LabelInput/HBoxContainer2/BtnConexoes" to="Conteudo" method="_on_BtnConexoes_button_up"]
+[connection signal="button_up" from="JanelaPessoa/HBoxContainer/VBoxContainer/MarginContainer/Borda/Foto" to="JanelaPessoa" method="_on_Foto_button_up"]
+[connection signal="button_up" from="JanelaPessoa/HBoxContainer/VBoxContainer/HBoxContainer/ID" to="JanelaPessoa" method="_on_ID_button_up"]
+[connection signal="button_up" from="JanelaPessoa/HBoxContainer/VBoxContainer/HBoxContainer/Lattes" to="JanelaPessoa" method="_on_Lattes_button_up"]
+[connection signal="button_up" from="JanelaPessoa/HBoxContainer/VBoxContainer/HBoxContainer/ResearchGate" to="JanelaPessoa" method="_on_ResearchGate_button_up"]
+[connection signal="button_up" from="JanelaPessoa/HBoxContainer/LabelInput/HBoxContainer2/BtnEditar" to="JanelaPessoa" method="_on_BtnEditar_button_up"]
+[connection signal="button_up" from="JanelaPessoa/HBoxContainer/LabelInput/HBoxContainer2/BtnConexoes" to="JanelaPessoa" method="_on_BtnConexoes_button_up"]
 [connection signal="button_up" from="URL/Nome/BtnEditarURL" to="." method="_on_BtnEditarURL_button_up"]
-[connection signal="file_selected" from="FileDialog" to="Conteudo" method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="FileDialog" to="JanelaPessoa" method="_on_FileDialog_file_selected"]

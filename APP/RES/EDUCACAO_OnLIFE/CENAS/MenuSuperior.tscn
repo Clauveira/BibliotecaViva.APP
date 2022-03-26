@@ -16,9 +16,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -76,7 +73,7 @@ size_flags_horizontal = 3
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Button1" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
+[node name="Sobre" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
 margin_left = 162.0
 margin_top = 500.0
 margin_right = 212.0
@@ -84,7 +81,7 @@ margin_bottom = 520.0
 size_flags_vertical = 4
 text = "SOBRE"
 
-[node name="Button2" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
+[node name="Equipes" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
 margin_left = 232.0
 margin_top = 500.0
 margin_right = 290.0
@@ -92,7 +89,7 @@ margin_bottom = 520.0
 size_flags_vertical = 4
 text = "EQUIPE"
 
-[node name="Button3" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
+[node name="GPedU" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
 margin_left = 310.0
 margin_top = 500.0
 margin_right = 367.0
@@ -100,7 +97,7 @@ margin_bottom = 520.0
 size_flags_vertical = 4
 text = "GPe-dU"
 
-[node name="Button4" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
+[node name="Contato" type="Button" parent="MarginContainer/Panel/HBoxContainer/HBoxContainer"]
 margin_left = 387.0
 margin_top = 500.0
 margin_right = 465.0

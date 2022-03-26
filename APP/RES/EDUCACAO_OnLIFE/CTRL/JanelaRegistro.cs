@@ -15,10 +15,12 @@ namespace Onlife.CTRL
 {
 	public class JanelaRegistro : MarginContainer, IDisposableCTRL
 	{
+		public int Coluna { get; set; }
+		public DadosCTRL Dados { get; set; }
 		public int CodigoRegistro { get; set; }
+		public RegistroDTO Registro { get; set; }
 		private bool Maximizado { get; set; }
 		private bool EmEdicao { get; set; }
-		private RegistroDTO Registro { get; set; }
 		private List<TipoDTO> Tipos { get; set; }
 		private TipoDTO TipoSelecionado { get; set; }
 		private IConsultarTipoBLL BLLTipo { get; set; }

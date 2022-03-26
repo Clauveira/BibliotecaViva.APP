@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/Map.png" type="Texture" id=4]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/PainelDeFundo.cs" type="Script" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Teste_UX.cs" type="Script" id=6]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/world.svg" type="Texture" id=8]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Linha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Location.svg" type="Texture" id=11]
 [ext_resource path="res://CTRL/_Teste.cs" type="Script" id=12]
 
@@ -45,10 +44,6 @@ position = Vector2( 1219, 619 )
 texture = ExtResource( 11 )
 offset = Vector2( 0.7, -16 )
 script = ExtResource( 12 )
-
-[node name="Linha" parent="CanvasLayer2/PainelDeFundo/Offset" instance=ExtResource( 9 )]
-ponto_a = NodePath("")
-ponto_b = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

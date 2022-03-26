@@ -18,6 +18,7 @@ namespace Onlife.CTRL
 	public class JanelaPessoa : MarginContainer, IDisposableCTRL
 	{
 		public int Coluna { get; set; }
+		public DadosCTRL Dados { get; set; }
 		public int CodPessoa { get; set; }
 		public PessoaDTO Pessoa { get; set; }
 		public RegistroDTO FotoDTO { get; set; }
