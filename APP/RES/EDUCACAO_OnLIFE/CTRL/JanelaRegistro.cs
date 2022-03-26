@@ -55,7 +55,7 @@ namespace Onlife.CTRL
 			DesativarFuncoesDeAltoProcessamento();
 			(GetParent() as JanelaBase).PopularConteudo(this);
 			AplicarMaximizar();
-			AlternarEdicao(false, false);
+			AlternarEdicao(true, false);
 		}
 		public void FecharCTRL()
 		{
@@ -120,9 +120,9 @@ namespace Onlife.CTRL
 			URL = GetNode<LineEdit>("./VBoxContainer/ConteudoURL/LineEdit");
 			IMG = GetNode<TextureButton>("./VBoxContainer/ConteudoIMG/Borda/Imagem");
 			AudioPlayer = GetNode<AudioStreamPlayer>("./AudioPlayer");
-			PopupDeArquivo = GetNode<FileDialog>("./FileDialog");
-			PopupDeGravacao = GetNode<FileDialog>("./SaveDialog");
-			PopupDeFeedback = GetNode<AcceptDialog>("./Atencao");
+			PopupDeArquivo = GetNode<FileDialog>("../FileDialog");
+			PopupDeGravacao = GetNode<FileDialog>("../SaveDialog");
+			PopupDeFeedback = GetNode<AcceptDialog>("../Atencao");
 			TipoDropdown = GetNode<OptionButton>("./VBoxContainer/ConteudoTipo/Borda/TipoDropdown");
 			Maximizado = false;
 			EmEdicao = false;
@@ -420,6 +420,7 @@ namespace Onlife.CTRL
 					URL.Text = registroDTO.Conteudo;
 					break;
 			}
+			AlternarEdicao(false, false);
 		}
 		public TipoDTO ObterDetalhesTipo(string nomeTipo)
 		{

@@ -50,7 +50,6 @@ margin_left = -212.0
 margin_top = -350.0
 margin_right = 288.0
 margin_bottom = 58.0
-rect_scale = Vector2( 0.75, 0.75 )
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 474.0
@@ -437,7 +436,30 @@ text = "CONEXÔES"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="Conteudo" index="1"]
 
-[node name="Atencao" type="AcceptDialog" parent="Conteudo" index="2"]
+[node name="FileDialog" type="FileDialog" parent="." index="3"]
+self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
+margin_right = 1000.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 0, 0 )
+window_title = "Abrir um Arquivo"
+mode = 0
+access = 2
+current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
+current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
+
+[node name="SaveDialog" type="FileDialog" parent="." index="4"]
+self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
+margin_left = 26.0
+margin_top = 20.0
+margin_right = 1026.0
+margin_bottom = 795.0
+rect_min_size = Vector2( 0, 0 )
+window_title = "Salvar um Arquivo"
+access = 2
+current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
+current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
+
+[node name="Atencao" type="AcceptDialog" parent="." index="5"]
 modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
 margin_left = 26.0
 margin_top = 20.0
@@ -445,31 +467,6 @@ margin_right = 524.0
 margin_bottom = 388.0
 rect_min_size = Vector2( 498, 169 )
 window_title = "Atenção"
-
-[node name="FileDialog" type="FileDialog" parent="Conteudo" index="3"]
-self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
-margin_left = 26.0
-margin_top = 20.0
-margin_right = 626.0
-margin_bottom = 388.0
-rect_min_size = Vector2( 600, 70 )
-window_title = "Abrir um Arquivo"
-mode = 0
-access = 2
-current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
-current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
-
-[node name="SaveDialog" type="FileDialog" parent="Conteudo" index="4"]
-self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
-margin_left = 26.0
-margin_top = 20.0
-margin_right = 626.0
-margin_bottom = 388.0
-rect_min_size = Vector2( 600, 70 )
-window_title = "Salvar um Arquivo"
-access = 2
-current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
-current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
 
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoAUDIO/Controles/BtnPlay" to="Conteudo" method="_on_BtnPlay_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoAUDIO/Controles/BtnStop" to="Conteudo" method="_on_BtnStop_button_up"]
@@ -482,5 +479,5 @@ current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-On
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnEditar" to="Conteudo" method="_on_BtnEditar_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnExibir" to="Conteudo" method="_on_BtnExibir_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnConexoes" to="Conteudo" method="_on_BtnConexoes_button_up"]
-[connection signal="file_selected" from="Conteudo/FileDialog" to="Conteudo" method="_on_FileDialog_file_selected"]
-[connection signal="file_selected" from="Conteudo/SaveDialog" to="Conteudo" method="_on_SaveDialog_file_selected"]
+[connection signal="file_selected" from="FileDialog" to="Conteudo" method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="SaveDialog" to="Conteudo" method="_on_SaveDialog_file_selected"]
