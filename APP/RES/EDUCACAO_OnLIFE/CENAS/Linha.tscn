@@ -8,6 +8,7 @@ anchor_bottom = 1.0
 margin_right = -1342.0
 margin_bottom = -130.0
 rect_min_size = Vector2( 578, 950 )
+mouse_filter = 1
 scroll_horizontal_enabled = false
 script = ExtResource( 1 )
 
@@ -15,4 +16,5 @@ script = ExtResource( 1 )
 margin_right = 578.0
 margin_bottom = 950.0
 rect_min_size = Vector2( 578, 950 )
+custom_constants/separation = 80
 alignment = 1

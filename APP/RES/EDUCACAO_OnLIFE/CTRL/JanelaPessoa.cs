@@ -252,7 +252,7 @@ namespace Onlife.CTRL
 		}
 		private void _on_BtnConexoes_button_up()
 		{
-			//Task.Run(async () => await TabBuscar.BuscarRelacoes(Pessoa, Coluna, this));
+			Task.Run(async () => await Dados.BuscarRelacoes(Pessoa, Coluna, this));
 		}
 		private void _on_FileDialog_file_selected(String path)
 		{

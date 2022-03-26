@@ -167,7 +167,7 @@ namespace Onlife.CTRL
 		}
 		private void _on_BtnConexoes_button_up()
 		{
-			//Task.Run(async () => await TabBuscar.BuscarRelacoes(Pessoa, Coluna, this));
+			Task.Run(async () => await Dados.BuscarRelacoes(Registro, Coluna, this));
 		}
 		private void _on_OptionButton_item_selected(int index)
 		{
