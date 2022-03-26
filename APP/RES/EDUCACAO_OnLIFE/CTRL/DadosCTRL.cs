@@ -43,7 +43,7 @@ namespace Onlife.CTRL
 		private void PopularNodes()
 		{
 			PopErro = GetNode<AcceptDialog>("./Dados/PopErro");
-			Coluna = GetNode<HBoxContainer>("./ScrollContainer/Colunas");
+			Coluna = GetNode<HBoxContainer>("./Coluna/Colunas");
 			
 			Pessoa = GetNode<JanelaBase>("./JanelaPessoa");
 			Registro = GetNode<JanelaBase>("./JanelaRegistro");
@@ -135,7 +135,7 @@ namespace Onlife.CTRL
 		}
 		private void InstanciarColuna()
 		{
-			BuscarBLL.InstanciarColuna();
+			BuscarBLL.InstanciarColuna("res://RES/EDUCACAO_OnLIFE/CENAS/Linha.tscn");
 		}
 		private bool ValidarPessoaJaInstanciadaNaColuna(PessoaDTO pessoa, int coluna)
 		{
@@ -161,10 +161,10 @@ namespace Onlife.CTRL
 		{
 			if (BuscarBLL.ValidarColuna(coluna))
 			{
-				BuscarBLL.InstanciarColuna();
+				BuscarBLL.InstanciarColuna("res://RES/EDUCACAO_OnLIFE/CENAS/Linha.tscn");
 				System.Threading.Thread.Sleep(100);
 			}
-			return Coluna.GetChild(coluna).GetChild<VBoxContainer>(0);
+			return Coluna.GetChild(coluna).GetNode<VBoxContainer>("./VBoxContainer");
 		}
 		public async Task BuscarRelacoes(PessoaDTO pessoa, int coluna, Node box)
 		{

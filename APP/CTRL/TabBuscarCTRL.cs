@@ -119,7 +119,7 @@ namespace BibliotecaViva.CTRL
 		}
 		private void InstanciarColuna()
 		{
-			BuscarBLL.InstanciarColuna();
+			BuscarBLL.InstanciarColuna("res://RES/EDUCACAO_OnLIFE/CENAS/Linha.tscn");
 		}
 		private bool ValidarPessoaJaInstanciadaNaColuna(PessoaDTO pessoa, int coluna)
 		{
@@ -145,7 +145,7 @@ namespace BibliotecaViva.CTRL
 		{
 			if (BuscarBLL.ValidarColuna(coluna))
 			{
-				BuscarBLL.InstanciarColuna();
+				BuscarBLL.InstanciarColuna("res://RES/EDUCACAO_OnLIFE/CENAS/Linha.tscn");
 				System.Threading.Thread.Sleep(100);
 			}
 			return Coluna.GetChild(coluna).GetChild<VBoxContainer>(0);

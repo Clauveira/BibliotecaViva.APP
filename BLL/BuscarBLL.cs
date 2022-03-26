@@ -13,9 +13,9 @@ namespace BibliotecaViva.BLL
         {
             Container = container;
         }
-        public void InstanciarColuna()
+        public void InstanciarColuna(string caminho)
         {
-            var cena = InstanciadorUtil.CarregarCena("res://RES/CENAS/Linha.tscn");
+            var cena = InstanciadorUtil.CarregarCena(caminho);
             var coluna = InstanciadorUtil.InstanciarObjeto(Container, cena, null);
             coluna._Ready();
         }
