@@ -348,6 +348,7 @@ __meta__ = {
 margin_right = 448.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 448, 400 )
+expand = true
 
 [node name="ConteudoTipo" type="VBoxContainer" parent="Conteudo/VBoxContainer" index="9"]
 visible = false
@@ -458,6 +459,18 @@ access = 2
 current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
 current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
 
+[node name="SaveDialog" type="FileDialog" parent="Conteudo" index="4"]
+self_modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
+margin_left = 26.0
+margin_top = 20.0
+margin_right = 626.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 600, 70 )
+window_title = "Salvar um Arquivo"
+access = 2
+current_dir = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP"
+current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-OnLIFE/APP/"
+
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoAUDIO/Controles/BtnPlay" to="Conteudo" method="_on_BtnPlay_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoAUDIO/Controles/BtnStop" to="Conteudo" method="_on_BtnStop_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/ConteudoAUDIO/Controles/BtnAlterar" to="Conteudo" method="_on_BtnAlterar_button_up"]
@@ -470,3 +483,4 @@ current_path = "/Users/edmundo/Documents/Rodrigo/Projetos/plataforma-educacao-On
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnExibir" to="Conteudo" method="_on_BtnExibir_button_up"]
 [connection signal="button_up" from="Conteudo/VBoxContainer/Comandos/BtnConexoes" to="Conteudo" method="_on_BtnConexoes_button_up"]
 [connection signal="file_selected" from="Conteudo/FileDialog" to="Conteudo" method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="Conteudo/SaveDialog" to="Conteudo" method="_on_SaveDialog_file_selected"]

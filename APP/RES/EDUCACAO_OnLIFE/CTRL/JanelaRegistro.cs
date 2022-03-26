@@ -18,6 +18,7 @@ namespace Onlife.CTRL
 		public int CodigoRegistro { get; set; }
 		private bool Maximizado { get; set; }
 		private bool EmEdicao { get; set; }
+		private RegistroDTO Registro { get; set; }
 		private List<TipoDTO> Tipos { get; set; }
 		private TipoDTO TipoSelecionado { get; set; }
 		private IConsultarTipoBLL BLLTipo { get; set; }
@@ -45,6 +46,7 @@ namespace Onlife.CTRL
 		private OptionButton TipoDropdown { get; set; }
 		private AudioStreamPlayer AudioPlayer { get; set; }
 		private FileDialog PopupDeArquivo { get; set; }
+		private FileDialog PopupDeGravacao { get; set; }
 		private AcceptDialog PopupDeFeedback { get; set; }
 		public override void _Ready()
 		{
@@ -87,6 +89,7 @@ namespace Onlife.CTRL
 			IMG.QueueFree();
 			AudioPlayer.QueueFree();
 			PopupDeArquivo.QueueFree();
+			PopupDeGravacao.QueueFree();
 			PopupDeFeedback.QueueFree();
 		}
 		private void RealizarInjecaoDeDependencias()
@@ -118,6 +121,7 @@ namespace Onlife.CTRL
 			IMG = GetNode<TextureButton>("./VBoxContainer/ConteudoIMG/Borda/Imagem");
 			AudioPlayer = GetNode<AudioStreamPlayer>("./AudioPlayer");
 			PopupDeArquivo = GetNode<FileDialog>("./FileDialog");
+			PopupDeGravacao = GetNode<FileDialog>("./SaveDialog");
 			PopupDeFeedback = GetNode<AcceptDialog>("./Atencao");
 			TipoDropdown = GetNode<OptionButton>("./VBoxContainer/ConteudoTipo/Borda/TipoDropdown");
 			Maximizado = false;
@@ -170,15 +174,15 @@ namespace Onlife.CTRL
 		}
 		private void _on_Imagem_button_up()
 		{
-			// Replace with function body.
+			PopupDeArquivo.Popup_();
 		}
 		private void _on_BtnDOWNLOAD_button_up()
 		{
-			// Replace with function body.
+			PopupDeGravacao.Popup_();
 		}
 		private void _on_BtnAcessar_button_up()
 		{
-			// Replace with function body.
+			OS.ShellOpen(URL.Text);
 		}
 		private void _on_BtnPlay_button_up()
 		{
@@ -190,11 +194,35 @@ namespace Onlife.CTRL
 		}
 		private void _on_BtnAlterar_button_up()
 		{
-			// Replace with function body.
+			PopupDeArquivo.Popup_();
 		}
 		private void _on_FileDialog_file_selected(String path)
 		{
-			// Replace with function body.
+			try
+			{
+				Registro = PopularRegistro();
+				Registro.Conteudo = ImportadorDeBinariosUtil.ObterBase64(path);
+				if (TipoSelecionado.TipoExecucao == TipoExecucao.Imagem && !string.IsNullOrEmpty(Registro.Nome))
+					IMG.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(Registro.Nome, TipoSelecionado.Extensao, Registro.Conteudo);
+				if (TipoSelecionado.TipoExecucao == TipoExecucao.Audio && !string.IsNullOrEmpty(Registro.Nome))
+					AudioPlayer.Stream = ImportadorDeBinariosUtil.GerarAudio(Registro.Nome, TipoSelecionado.Extensao, Registro.Conteudo);
+			}
+			catch(Exception ex)
+			{
+				CallDeferred("Feedback", ex.Message, false);
+			}	 
+		}
+		private void _on_SaveDialog_file_selected(String path)
+		{
+			try
+			{
+				if (!string.IsNullOrEmpty(Registro?.Conteudo))
+					ImportadorDeBinariosUtil.SalvarBase64(path, Registro.Conteudo);
+			}
+			catch(Exception ex)
+			{
+				CallDeferred("Feedback", ex.Message, false);
+			}
 		}
 		private void AjustarAltura()
 		{
@@ -307,6 +335,8 @@ namespace Onlife.CTRL
 			}
 			else
 			{
+				if (salvar)
+					SalvarRegistro();
 				BtnAlterarAudio.Hide();
 				BtnAlterarBinario.Hide();
 				ConteudoTipoContainer.Hide();
@@ -326,6 +356,51 @@ namespace Onlife.CTRL
 		private void ObterDadosExtensao(string nomeTipo)
 		{
 			TipoSelecionado = (from tipo in Tipos where tipo.Nome == nomeTipo select tipo).FirstOrDefault();
+		}
+		private void SalvarRegistro()
+		{
+			try
+			{
+				Registro = PopularRegistro();
+				var retorno = CadastrarRegistroBLL.CadastrarRegistro(Registro);
+				CallDeferred("Feedback", retorno, true);
+			}
+			catch(Exception ex)
+			{
+				CallDeferred("Feedback", ex.Message, false);
+			}
+		}
+		private RegistroDTO PopularRegistro()
+		{
+			return new RegistroDTO()
+			{
+				Nome = Nome.Text,
+				Apelido = Apelido.Text,
+				Idioma = "Português",
+				Tipo = TipoSelecionado.Nome,
+				Conteudo = ObterConteudo(),
+				Descricao = Descricao.Text,
+				DataInsercao = DateTime.Now,
+				Referencias = new List<RelacaoDTO>()
+			};
+		}
+		private string ObterConteudo()
+		{
+			switch(TipoSelecionado.TipoExecucao)
+			{
+				case TipoExecucao.Audio:
+					return string.IsNullOrEmpty(Registro?.Conteudo) ? string.Empty : Registro.Conteudo;
+				case TipoExecucao.Imagem:
+					return string.IsNullOrEmpty(Registro?.Conteudo) ? string.Empty : Registro.Conteudo;
+				case TipoExecucao.Texto:
+					return ConteudoTXT.Text;
+				case TipoExecucao.Arquivo:
+					return string.IsNullOrEmpty(Registro?.Conteudo) ? string.Empty : Registro.Conteudo;
+				case TipoExecucao.URL:
+					return URL.Text;
+				default:
+					return string.Empty;
+			}
 		}
 		private void Feedback(string mensagem, bool sucesso)
 		{
