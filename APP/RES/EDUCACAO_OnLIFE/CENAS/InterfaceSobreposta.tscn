@@ -375,14 +375,18 @@ margin_bottom = 352.0
 [node name="BarraDeBusca" parent="." instance=ExtResource( 14 )]
 margin_left = 205.0
 margin_top = 145.0
-margin_right = 205.0
-margin_bottom = 145.0
+margin_right = -397.0
+margin_bottom = -895.0
+
+[node name="BtnBuscar" parent="BarraDeBusca" index="1"]
+margin_left = 1050.0
+margin_right = 1152.0
 
 [node name="SideBar" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = -9.0
-margin_right = 3840.0
-margin_bottom = 2151.0
+margin_right = 7680.0
+margin_bottom = 4311.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 
@@ -537,6 +541,7 @@ anims/Expandir = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 anims/Retrair = SubResource( 6 )
 
+[connection signal="button_up" from="BarraDeBusca/BtnBuscar" to="Dados" method="_on_BtnBuscar_button_up"]
 [connection signal="button_up" from="SideBar/VBoxContainer/NovaPistaViva" to="Dados" method="_on_NovaPistaViva_button_up"]
 [connection signal="button_up" from="SideBar/VBoxContainer/NovoRegistro" to="Dados" method="_on_NovoRegistro_button_up"]
 [connection signal="toggled" from="SideBar/VBoxContainer/Buscar" to="Dados" method="_on_Buscar_toggled"]
@@ -549,5 +554,6 @@ anims/Retrair = SubResource( 6 )
 [connection signal="pressed" from="Panel/ExpandirButton" to="." method="_on_ExpandirButton_pressed"]
 
 [editable path="Dados/Coluna"]
+[editable path="BarraDeBusca"]
 [editable path="SideBar"]
 [editable path="InterfaceExpandida/MenuSuperior"]

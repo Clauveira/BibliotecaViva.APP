@@ -228,7 +228,14 @@ namespace Onlife.CTRL
 		}
 		private void AjustarAltura()
 		{
-			Janela.RectMinSize = new Vector2(500, Container.RectSize.y + 40);
+			if (Janela.RectMinSize.y < Container.RectSize.y + 40)
+			{
+				var tamanho = new Vector2(500, Container.RectSize.y + 40);
+				Janela.RectMinSize = tamanho;
+				Janela.RectSize = tamanho;
+				this.RectMinSize = tamanho;
+				this.RectSize = tamanho;
+			}
 		}
 		private void AlterarMaximizar()
 		{

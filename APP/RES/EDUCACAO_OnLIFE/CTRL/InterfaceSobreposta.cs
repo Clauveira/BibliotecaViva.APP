@@ -19,6 +19,7 @@ namespace Onlife.CTRL
 		{
 			GD.Print("Vivo");
 			GetNode<AnimationPlayer>("Anim").Play("Retrair");
+			GetNode<BarraDeBusca>("./BarraDeBusca").Exibir(false);
 		}
 	}
 }

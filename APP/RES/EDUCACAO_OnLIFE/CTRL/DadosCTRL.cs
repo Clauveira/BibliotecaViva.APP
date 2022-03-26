@@ -82,9 +82,17 @@ namespace Onlife.CTRL
 		{
 			BarraBusca.Exibir(button_pressed);
 		}
+		private async void _on_BtnBuscar_button_up()
+		{
+			var termos = BarraBusca.ObterTermoDeBusca();
+			if (BarraBusca.ObterSelecao() == "Pista Viva")
+				Task.Run(async () => await RealizarConsultaPessoa(termos[0], termos[1]));
+			else
+				Task.Run(async () => await RealizarConsultaRegistro(termos[0], termos[1]));
+		}
 		private void _on_Explorar_button_up()
 		{
-			// Replace with function body.
+			// TODO AQUI VIRÁ O SONAR NO FUTURO
 		}
 		private void _on_Sobre_button_up()
 		{
@@ -103,6 +111,31 @@ namespace Onlife.CTRL
 		{
 			//TODO CLAUÊ PRECISAMOS DE UMA JANELA PARA O CONTATO
 			//InstanciarOutraJanela(Contato, ObterColuna(0), 0);
+		}
+		private async Task RealizarConsultaPessoa(string nome, string sobrenome)
+		{
+			var resultado = PessoaBLL.RealizarConsulta(new PessoaConsulta()
+			{
+				Nome = nome,
+				Sobrenome = sobrenome
+			});
+			foreach (var pessoa in resultado)
+			{
+				CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(0), 0);
+			}
+		}
+		private async Task RealizarConsultaRegistro(string nome, string apelido)
+		{
+			var resultado = RegistroBLL.RealizarConsulta(new RegistroConsulta()
+			{
+				Nome = nome,
+				Apelido = apelido,
+				Idioma = "Português"
+			});
+			foreach (var registro in resultado)
+			{
+				CallDeferred("InstanciarRegistroBox", new RegistroObject(registro, null), ObterColuna(0), 0);
+			}
 		}
 		private void InstanciarOutraJanela(Node janelaInstanciada, VBoxContainer container, int coluna)
 		{

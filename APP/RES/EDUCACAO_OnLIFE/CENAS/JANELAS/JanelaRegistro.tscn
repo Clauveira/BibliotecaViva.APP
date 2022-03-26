@@ -50,6 +50,7 @@ margin_left = -212.0
 margin_top = -350.0
 margin_right = 288.0
 margin_bottom = 58.0
+rect_min_size = Vector2( 500, 408 )
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 474.0
