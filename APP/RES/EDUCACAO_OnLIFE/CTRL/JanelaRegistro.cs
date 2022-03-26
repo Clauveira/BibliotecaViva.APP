@@ -359,10 +359,20 @@ namespace Onlife.CTRL
 		}
 		private void SalvarRegistro()
 		{
+			Task.Run(async () => await RelizarEnvioRegistro());
+		}
+		public async Task RelizarEnvioRegistro()
+		{
 			try
 			{
 				Registro = PopularRegistro();
 				var retorno = CadastrarRegistroBLL.CadastrarRegistro(Registro);
+				
+				if (CodigoRegistro == 0)
+				{
+					var retornoProcessado = retorno.Split(" ");
+					CodigoRegistro = Convert.ToInt32(retornoProcessado[0]);
+				}
 				CallDeferred("Feedback", retorno, true);
 			}
 			catch(Exception ex)
@@ -374,6 +384,7 @@ namespace Onlife.CTRL
 		{
 			return new RegistroDTO()
 			{
+				Codigo = CodigoRegistro,
 				Nome = Nome.Text,
 				Apelido = Apelido.Text,
 				Idioma = "Português",
@@ -383,6 +394,40 @@ namespace Onlife.CTRL
 				DataInsercao = DateTime.Now,
 				Referencias = new List<RelacaoDTO>()
 			};
+		}
+		public void PopularDados(RegistroDTO registroDTO)
+		{
+			Registro = registroDTO;
+			CodigoRegistro = registroDTO.Codigo;
+			Nome.Text = registroDTO.Nome;
+			TipoSelecionado = ObterDetalhesTipo(registroDTO.Tipo);
+			Descricao.Text = registroDTO.Descricao;
+			
+			switch(TipoSelecionado.TipoExecucao)
+			{
+				case TipoExecucao.Audio:
+					AudioPlayer.Stream = ImportadorDeBinariosUtil.GerarAudio(Registro.Nome, TipoSelecionado.Extensao, Registro.Conteudo);
+					break;
+				case TipoExecucao.Imagem:
+					IMG.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(Registro.Nome, TipoSelecionado.Extensao, Registro.Conteudo);
+					break;
+				case TipoExecucao.Texto:
+					ConteudoTXT.Text = registroDTO.Conteudo;
+					break;
+				case TipoExecucao.Arquivo:
+					break;
+				case TipoExecucao.URL:
+					URL.Text = registroDTO.Conteudo;
+					break;
+			}
+		}
+		public TipoDTO ObterDetalhesTipo(string nomeTipo)
+		{
+			return (from tipo in Tipos
+				where
+					tipo.Nome == nomeTipo
+				select 
+					tipo).FirstOrDefault();
 		}
 		private string ObterConteudo()
 		{

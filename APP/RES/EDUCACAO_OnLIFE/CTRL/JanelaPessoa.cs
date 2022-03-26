@@ -43,7 +43,7 @@ namespace Onlife.CTRL
 		private string NomePopUp { get ; set; }
 		public override void _Ready()
 		{
-			PoularNodes();
+			PopularNodes();
 			RealizarInjecaoDeDependencias();
 			DesativarFuncoesDeAltoProcessamento();
 			EmEdicao = true;
@@ -111,7 +111,7 @@ namespace Onlife.CTRL
 			ConsultarRegistroBLL = new ConsultarRegistroBLL();
 			CadastrarRegistroBLL = new CadastrarRegistroBLL();
 		}
-		private void PoularNodes()
+		private void PopularNodes()
 		{
 			CodPessoa = 0;
 			Nome = GetNode<LineEdit>("./HBoxContainer/LabelInput/Nome/LineEdit");
