@@ -17,6 +17,7 @@ namespace Onlife.CTRL
 
 		private JanelaBase Pessoa { get; set; }
 		private JanelaBase Registro { get; set; }
+		private BarraDeBusca BarraBusca { get; set; }
 		private Node Sobre { get ;set; }
 		private Node GPedU { get; set; }
 
@@ -38,6 +39,7 @@ namespace Onlife.CTRL
 			BuscarBLL.Dispose();
 			Sobre.QueueFree();
 			GPedU.QueueFree();
+			BarraBusca.QueueFree();
 			QueueFree();
 		}
 		private void PopularNodes()
@@ -47,6 +49,7 @@ namespace Onlife.CTRL
 			
 			Pessoa = GetNode<JanelaBase>("./JanelaPessoa");
 			Registro = GetNode<JanelaBase>("./JanelaRegistro");
+			BarraBusca = GetNode<BarraDeBusca>("../BarraDeBusca");
 			
 			Sobre = GetNode<Node>("./JanelaSobre");
 			GPedU = GetNode<Node>("./JanelaGPedU");
@@ -75,9 +78,9 @@ namespace Onlife.CTRL
 		{
 			InstanciarPessoaBox(null, ObterColuna(0), 0);
 		}
-		private void _on_Buscar_button_up()
+		private void _on_Buscar_toggled(bool button_pressed)
 		{
-			// Replace with function body.
+			BarraBusca.Exibir(button_pressed);
 		}
 		private void _on_Explorar_button_up()
 		{
