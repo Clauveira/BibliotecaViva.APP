@@ -16,7 +16,10 @@ size = 13
 font_data = ExtResource( 1 )
 
 [node name="JanelaSobre" instance=ExtResource( 2 )]
-Titulo = "Sobre a plataforma Educação Onlife"
+rect_min_size = Vector2( 500, 362 )
+
+[node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
+margin_right = 474.0
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="2"]
 anchor_right = 1.0
@@ -32,7 +35,7 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" index="0"]
 margin_left = 30.0
 margin_top = 30.0
-margin_right = 462.0
+margin_right = 470.0
 margin_bottom = 332.0
 custom_fonts/bold_font = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 2 )
@@ -61,7 +64,7 @@ __meta__ = {
 visible = false
 margin_left = 30.0
 margin_top = 30.0
-margin_right = 462.0
+margin_right = 470.0
 margin_bottom = 332.0
 rect_clip_content = true
 custom_constants/margin_right = 8
@@ -75,5 +78,5 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 30.0
-margin_right = 462.0
+margin_right = 470.0
 margin_bottom = 332.0
