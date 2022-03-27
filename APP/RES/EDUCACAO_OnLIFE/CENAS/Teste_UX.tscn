@@ -35,6 +35,7 @@ position = Vector2( 2359, -407 )
 texture = ExtResource( 8 )
 
 [node name="MapaTeste" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
+visible = false
 position = Vector2( 1147, 467 )
 scale = Vector2( 1.50292, 1.50292 )
 texture = ExtResource( 4 )

@@ -78,6 +78,7 @@ namespace Onlife.CTRL
 		}
 		public void PopularDados(PessoaDTO pessoaDTO)
 		{
+			Pessoa = pessoaDTO;
 			CodPessoa = pessoaDTO.Codigo;
 			Nome.Text = pessoaDTO.Nome;
 			Sobrenome.Text = pessoaDTO.Sobrenome;
