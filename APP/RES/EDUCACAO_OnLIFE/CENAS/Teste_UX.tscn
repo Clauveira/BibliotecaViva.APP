@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=1]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/Map.png" type="Texture" id=4]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/MapaMocado.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/RegistroGeolocalizado.tscn" type="PackedScene" id=3]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/PainelDeFundo.cs" type="Script" id=5]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CTRL/Teste_UX.cs" type="Script" id=6]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/world.svg" type="Texture" id=8]
-[ext_resource path="res://RES/EDUCACAO_OnLIFE/ICONES/Location.svg" type="Texture" id=11]
-[ext_resource path="res://CTRL/_Teste.cs" type="Script" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.94902, 0.94902, 0.94902, 1 )
@@ -34,18 +33,31 @@ mouse_filter = 2
 position = Vector2( 2359, -407 )
 texture = ExtResource( 8 )
 
-[node name="MapaTeste" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
-visible = false
-position = Vector2( 1147, 467 )
-scale = Vector2( 1.50292, 1.50292 )
-texture = ExtResource( 4 )
+[node name="MapaMocado" parent="CanvasLayer2/PainelDeFundo/Offset" instance=ExtResource( 2 )]
+margin_left = 1157.0
+margin_top = 635.0
+margin_right = 1157.0
+margin_bottom = 635.0
+rect_scale = Vector2( 0.03, 0.03 )
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer2/PainelDeFundo/Offset"]
-position = Vector2( 1219, 619 )
-texture = ExtResource( 11 )
-offset = Vector2( 0.7, -16 )
-script = ExtResource( 12 )
+[node name="RegistroGeolocalizado" parent="CanvasLayer2/PainelDeFundo/Offset/MapaMocado" instance=ExtResource( 3 )]
+margin_left = 2033.33
+margin_top = 433.328
+margin_right = 2065.33
+margin_bottom = 465.328
+NomeRegistro = "Rodrigo"
+ApelidoRegistro = "Medeiros"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InterfaceSobreposta" parent="CanvasLayer" instance=ExtResource( 1 )]
+
+[node name="SideBar" parent="CanvasLayer/InterfaceSobreposta" index="2"]
+margin_right = 11520.0
+margin_bottom = 6471.0
+
+[editable path="CanvasLayer/InterfaceSobreposta"]
+[editable path="CanvasLayer/InterfaceSobreposta/Dados/Coluna"]
+[editable path="CanvasLayer/InterfaceSobreposta/BarraDeBusca"]
+[editable path="CanvasLayer/InterfaceSobreposta/SideBar"]
+[editable path="CanvasLayer/InterfaceSobreposta/InterfaceExpandida/MenuSuperior"]

@@ -124,7 +124,7 @@ namespace Onlife.CTRL
 				CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(0), 0);
 			}
 		}
-		private async Task RealizarConsultaRegistro(string nome, string apelido)
+		public async Task RealizarConsultaRegistro(string nome, string apelido)
 		{
 			var resultado = RegistroBLL.RealizarConsulta(new RegistroConsulta()
 			{
