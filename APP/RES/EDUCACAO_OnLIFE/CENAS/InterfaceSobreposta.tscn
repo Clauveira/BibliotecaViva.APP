@@ -385,8 +385,8 @@ margin_right = 1152.0
 [node name="SideBar" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = -9.0
-margin_right = 9600.0
-margin_bottom = 5391.0
+margin_right = 11520.0
+margin_bottom = 6471.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 

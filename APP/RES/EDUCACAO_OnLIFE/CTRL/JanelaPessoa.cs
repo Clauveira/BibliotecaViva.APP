@@ -88,7 +88,8 @@ namespace Onlife.CTRL
 			LattesDTO = ObterRegistroEspecifico(relacoes, "Lattes");
 			ResearchGateDTO = ObterRegistroEspecifico(relacoes, "ResearchGate");
 			IDDTO = ObterRegistroEspecifico(relacoes, "ID");
-			Foto.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(FotoDTO.Nome, "jpg", FotoDTO.Conteudo);
+			if (FotoDTO != null)
+				Foto.TextureNormal = ImportadorDeBinariosUtil.GerarImagem(FotoDTO.Nome, "jpg", FotoDTO.Conteudo);
 			EmEdicao = false;
 			DefinirEmEdicao();
 		}
