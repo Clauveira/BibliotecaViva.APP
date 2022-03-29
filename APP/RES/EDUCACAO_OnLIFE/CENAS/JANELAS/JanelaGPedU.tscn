@@ -19,6 +19,7 @@ rect_min_size = Vector2( 500, 362 )
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 474.0
+text = "Sobre o GPe-dU"
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="2"]
 anchor_right = 1.0

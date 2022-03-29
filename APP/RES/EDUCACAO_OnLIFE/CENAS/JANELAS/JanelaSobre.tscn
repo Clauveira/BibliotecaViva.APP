@@ -20,8 +20,9 @@ rect_min_size = Vector2( 500, 362 )
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 474.0
+text = "Sobre"
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="2"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 30
@@ -32,7 +33,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" index="0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/MarginContainer" index="0"]
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 470.0
@@ -60,7 +61,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer" index="1"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control/Panel/MarginContainer" index="1"]
 visible = false
 margin_left = 30.0
 margin_top = 30.0
@@ -72,7 +73,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Borda" parent="MarginContainer" index="2" instance=ExtResource( 3 )]
+[node name="Borda" parent="Control/Panel/MarginContainer" index="2" instance=ExtResource( 3 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0

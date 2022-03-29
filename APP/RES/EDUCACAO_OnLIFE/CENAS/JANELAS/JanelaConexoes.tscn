@@ -8,7 +8,6 @@ margin_left = -197.5
 margin_top = -205.5
 margin_right = 197.5
 margin_bottom = 205.5
-Titulo = "Conexões"
 
 [node name="Titulo" parent="BarraDeTituloJanela/MarginContainer" index="0"]
 margin_right = 369.0

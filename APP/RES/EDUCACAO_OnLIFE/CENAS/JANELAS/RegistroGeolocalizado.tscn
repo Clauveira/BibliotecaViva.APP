@@ -7,7 +7,9 @@
 anchor_right = 0.017
 anchor_bottom = 0.03
 margin_right = -0.640003
-margin_bottom = -0.400002
+margin_bottom = -0.399998
+rect_pivot_offset = Vector2( 15, 32 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 script = ExtResource( 1 )
 
