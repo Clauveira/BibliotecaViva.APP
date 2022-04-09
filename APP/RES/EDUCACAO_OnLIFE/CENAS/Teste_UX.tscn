@@ -64,8 +64,44 @@ margin_top = 136.658
 margin_right = 999.031
 margin_bottom = 168.658
 rect_scale = Vector2( 0.146349, 0.146349 )
+NomeRegistro = "Cidade"
+ApelidoRegistro = "Projeto Cidade"
+
+[node name="RegistroGeolocalizado3" parent="Pagina/PaginaMapa/Offset/MapaMocado" instance=ExtResource( 3 )]
+margin_left = 946.642
+margin_top = 150.127
+margin_right = 978.642
+margin_bottom = 182.127
+rect_scale = Vector2( 0.146349, 0.146349 )
 NomeRegistro = "Rodrigo"
 ApelidoRegistro = "Medeiros"
+
+[node name="RegistroGeolocalizado4" parent="Pagina/PaginaMapa/Offset/MapaMocado" instance=ExtResource( 3 )]
+margin_left = 969.996
+margin_top = 149.633
+margin_right = 1002.0
+margin_bottom = 181.633
+rect_scale = Vector2( 0.146349, 0.146349 )
+NomeRegistro = "Rodrigo"
+ApelidoRegistro = "Medeiros"
+
+[node name="RegistroGeolocalizado5" parent="Pagina/PaginaMapa/Offset/MapaMocado" instance=ExtResource( 3 )]
+margin_left = 981.982
+margin_top = 143.949
+margin_right = 1013.98
+margin_bottom = 175.949
+rect_scale = Vector2( 0.146349, 0.146349 )
+NomeRegistro = "Rodrigo"
+ApelidoRegistro = "Medeiros"
+
+[node name="RegistroGeolocalizado6" parent="Pagina/PaginaMapa/Offset/MapaMocado" instance=ExtResource( 3 )]
+margin_left = 954.427
+margin_top = 106.755
+margin_right = 986.427
+margin_bottom = 138.755
+rect_scale = Vector2( 0.146349, 0.146349 )
+NomeRegistro = "Projeto Teen Community"
+ApelidoRegistro = ""
 
 [node name="Control" type="Control" parent="Pagina/PaginaMapa/Offset"]
 margin_left = -152.031

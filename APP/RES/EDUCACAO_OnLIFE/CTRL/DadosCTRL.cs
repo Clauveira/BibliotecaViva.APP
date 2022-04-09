@@ -20,6 +20,8 @@ namespace Onlife.CTRL
         private BarraDeBusca BarraBusca { get; set; }
         private Node Sobre { get; set; }
         private Node GPedU { get; set; }
+        private Node Equipe { get; set; }
+        private Node Contato { get; set; }
 
         private IConsultarRegistroBLL RegistroBLL { get; set; }
         private IConsultarPessoaBLL PessoaBLL { get; set; }
@@ -39,6 +41,8 @@ namespace Onlife.CTRL
             BuscarBLL.Dispose();
             Sobre.QueueFree();
             GPedU.QueueFree();
+            Equipe.QueueFree();
+            Contato.QueueFree();
             BarraBusca.QueueFree();
             QueueFree();
         }
@@ -53,6 +57,8 @@ namespace Onlife.CTRL
 
             Sobre = GetNode<Node>("./JanelaSobre");
             GPedU = GetNode<Node>("./JanelaGPedU");
+            Equipe = GetNode<Node>("./JanelaEquipe");
+            Contato = GetNode<Node>("./JanelaContato");
         }
         private void RealizarInjecaoDeDependencias()
         {
@@ -92,7 +98,7 @@ namespace Onlife.CTRL
         }
         private void _on_Explorar_button_up()
         {
-            // TODO AQUI VIRÁ O SONAR NO FUTURO
+            // TODO: AQUI VIRÁ O SONAR NO FUTURO
         }
         private void _on_Sobre_button_up()
         {
@@ -100,8 +106,7 @@ namespace Onlife.CTRL
         }
         private void _on_Equipes_button_up()
         {
-            //TODO CLAUÊ PRECISAMOS DE UMA JANELA PARA A EQUIPE, NÃO VAI DA PRA FAZER COMO QUERIÍAMOS ANTES
-            //InstanciarOutraJanela(Equipe, ObterColuna(0), 0);
+            InstanciarOutraJanela(Equipe, ObterColuna(0), 0);
         }
         private void _on_GPedU_button_up()
         {
@@ -109,8 +114,7 @@ namespace Onlife.CTRL
         }
         private void _on_Contato_button_up()
         {
-            //TODO CLAUÊ PRECISAMOS DE UMA JANELA PARA O CONTATO
-            //InstanciarOutraJanela(Contato, ObterColuna(0), 0);
+            InstanciarOutraJanela(Contato, ObterColuna(0), 0);
         }
         private async Task RealizarConsultaPessoa(string nome, string sobrenome)
         {
@@ -211,6 +215,12 @@ namespace Onlife.CTRL
                 foreach (var relacao in resultado)
                 {
                     CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(novaColuna), novaColuna);
+                    PackedScene linha = (PackedScene)ResourceLoader.Load("res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Linha.tscn");
+                    //TODO: Linhas
+                    //Linha newLinha = (Linha)linha.Instance();
+                    //box.AddChild(newLinha);
+                    //newLinha.set_ponto_a(box.GetPath());
+                    //newLinha.set_ponto_b(box.GetPath());
                 }
             }
             catch (Exception ex)
