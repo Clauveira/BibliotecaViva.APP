@@ -466,6 +466,5 @@ anchor_bottom = 0.0
 margin_top = 2902.0
 margin_right = 1912.0
 margin_bottom = 3102.0
-rect_min_size = Vector2( 0, 200 )
 
 [connection signal="pressed" from="PaginaIndex2/VBoxContainer/PanelContainer/MarginContainer/Control/Balloom" to="PaginaIndex2/VBoxContainer/PanelContainer/MarginContainer/Control/Balloom" method="_on_Balloom_pressed"]

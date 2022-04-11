@@ -160,7 +160,7 @@ namespace Onlife.CTRL
             pessoa.Dados = this;
             pessoa.Coluna = coluna;
         }
-        private void InstanciarRegistroBox(RegistroObject registroObjct, VBoxContainer container, int coluna)
+        private void InstanciarRegistroBox(RegistroObject registroObjct, VBoxContainer container, int coluna, Node boxOrigem)
         {
             if (registroObjct != null && ValidarRegistroJaInstanciadoNaColuna(registroObjct.Registro, coluna))
                 return;
@@ -172,6 +172,7 @@ namespace Onlife.CTRL
                 registro.PopularDados(registroObjct.Registro);
             registro.Dados = this;
             registro.Coluna = coluna;
+            criarFio(boxOrigem, registroBox);
         }
         private void InstanciarColuna()
         {
@@ -206,6 +207,13 @@ namespace Onlife.CTRL
             }
             return Coluna.GetChild(coluna).GetNode<VBoxContainer>("./VBoxContainer");
         }
+        public void criarFio(Node boxOrigem, Node boxDestino)
+        {
+            PackedScene fio = GD.Load<PackedScene>("res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/FioVermelho.tscn");
+            FioVermelho newFio = (FioVermelho)fio.Instance();
+            AddChild(newFio);
+            newFio.set_pontos(boxOrigem, boxDestino);
+        }
         public async Task BuscarRelacoes(PessoaDTO pessoa, int coluna, Node box)
         {
             try
@@ -214,13 +222,11 @@ namespace Onlife.CTRL
                 var novaColuna = coluna + 1;
                 foreach (var relacao in resultado)
                 {
-                    CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(novaColuna), novaColuna);
-                    PackedScene linha = (PackedScene)ResourceLoader.Load("res://RES/EDUCACAO_OnLIFE/CENAS/JANELA_PART/Linha.tscn");
-                    //TODO: Linhas
-                    //Linha newLinha = (Linha)linha.Instance();
-                    //box.AddChild(newLinha);
-                    //newLinha.set_ponto_a(box.GetPath());
-                    //newLinha.set_ponto_b(box.GetPath());
+                    CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(novaColuna), novaColuna, box);
+
+                    //criarFio(box, box);
+
+
                 }
             }
             catch (Exception ex)
@@ -235,9 +241,9 @@ namespace Onlife.CTRL
                 var resultado = RegistroBLL.RealizarConsultaDeRegistrosRelacionados(new RelacaoConsulta(registro.Codigo));
                 var novaColuna = coluna + 1;
                 foreach (var relacao in resultado.Registros)
-                    CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(novaColuna), novaColuna);
+                    CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(novaColuna), novaColuna, box);
                 foreach (var pessoa in resultado.Pessoas)
-                    CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(novaColuna), novaColuna);
+                    CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(novaColuna), novaColuna, box);
             }
             catch (Exception ex)
             {

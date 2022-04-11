@@ -5,7 +5,7 @@ public class Pagina : CanvasLayer
 {
     public override void _Ready()
     {
-        SetPagina("Index");
+        //SetPagina("Index");
     }
 
     public void SetPagina(string pagina)
