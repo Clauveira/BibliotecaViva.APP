@@ -125,7 +125,7 @@ namespace Onlife.CTRL
             });
             foreach (var pessoa in resultado)
             {
-                CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(0), 0);
+                CallDeferred("InstanciarPessoaBox", new PessoaObject(pessoa), ObterColuna(0), 0, null);
             }
         }
         public async Task RealizarConsultaRegistro(string nome, string apelido)
@@ -138,7 +138,7 @@ namespace Onlife.CTRL
             });
             foreach (var registro in resultado)
             {
-                CallDeferred("InstanciarRegistroBox", new RegistroObject(registro, null), ObterColuna(0), 0);
+                CallDeferred("InstanciarRegistroBox", new RegistroObject(registro, null), ObterColuna(0), 0, null);
             }
         }
         private void InstanciarOutraJanela(Node janelaInstanciada, VBoxContainer container, int coluna)
@@ -147,7 +147,7 @@ namespace Onlife.CTRL
             container.AddChild(janela);
             janela._Ready();
         }
-        private void InstanciarPessoaBox(PessoaObject pessoaObjct, VBoxContainer container, int coluna)
+        private void InstanciarPessoaBox(PessoaObject pessoaObjct, VBoxContainer container, int coluna, Node boxOrigem = null)
         {
             if (pessoaObjct != null && ValidarPessoaJaInstanciadaNaColuna(pessoaObjct.Pessoa, coluna))
                 return;
@@ -159,8 +159,12 @@ namespace Onlife.CTRL
                 pessoa.PopularDados(pessoaObjct.Pessoa);
             pessoa.Dados = this;
             pessoa.Coluna = coluna;
+            if (boxOrigem != null)
+            {
+                criarFio(boxOrigem, pessoaBox);
+            }
         }
-        private void InstanciarRegistroBox(RegistroObject registroObjct, VBoxContainer container, int coluna, Node boxOrigem)
+        private void InstanciarRegistroBox(RegistroObject registroObjct, VBoxContainer container, int coluna, Node boxOrigem = null)
         {
             if (registroObjct != null && ValidarRegistroJaInstanciadoNaColuna(registroObjct.Registro, coluna))
                 return;
@@ -172,7 +176,10 @@ namespace Onlife.CTRL
                 registro.PopularDados(registroObjct.Registro);
             registro.Dados = this;
             registro.Coluna = coluna;
-            criarFio(boxOrigem, registroBox);
+            if (boxOrigem != null)
+            {
+                criarFio(boxOrigem, registroBox);
+            }
         }
         private void InstanciarColuna()
         {
@@ -223,10 +230,6 @@ namespace Onlife.CTRL
                 foreach (var relacao in resultado)
                 {
                     CallDeferred("InstanciarRegistroBox", new RegistroObject(relacao, null), ObterColuna(novaColuna), novaColuna, box);
-
-                    //criarFio(box, box);
-
-
                 }
             }
             catch (Exception ex)
