@@ -148,7 +148,7 @@ margin_right = 448.0
 margin_bottom = 17.0
 text = "Descrição"
 
-[node name="LineEdit" type="LineEdit" parent="JanelaRegistro/VBoxContainer/Descricao" index="1"]
+[node name="LineEdit" type="TextEdit" parent="JanelaRegistro/VBoxContainer/Descricao" index="1"]
 margin_top = 25.0
 margin_right = 448.0
 margin_bottom = 125.0

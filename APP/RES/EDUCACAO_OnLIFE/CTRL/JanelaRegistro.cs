@@ -37,7 +37,7 @@ namespace Onlife.CTRL
         private LineEdit Nome { get; set; }
         private LineEdit Apelido { get; set; }
         private LineEdit Localizacao { get; set; }
-        private LineEdit Descricao { get; set; }
+        private TextEdit Descricao { get; set; }
         private LineEdit ConteudoTXT { get; set; }
         private LineEdit URL { get; set; }
         private TextureButton IMG { get; set; }
@@ -117,7 +117,7 @@ namespace Onlife.CTRL
             Nome = GetNode<LineEdit>("./VBoxContainer/Nome/LineEdit");
             Apelido = GetNode<LineEdit>("./VBoxContainer/Apelido/LineEdit");
             Localizacao = GetNode<LineEdit>("./VBoxContainer/Localizacao/LineEdit");
-            Descricao = GetNode<LineEdit>("./VBoxContainer/Descricao/LineEdit");
+            Descricao = GetNode<TextEdit>("./VBoxContainer/Descricao/LineEdit");
             ConteudoTXT = GetNode<LineEdit>("./VBoxContainer/ConteudoTXT/LineEdit");
             URL = GetNode<LineEdit>("./VBoxContainer/ConteudoURL/LineEdit");
             IMG = GetNode<TextureButton>("./VBoxContainer/ConteudoIMG/Borda/Imagem");
@@ -357,7 +357,7 @@ namespace Onlife.CTRL
             Nome.Editable = ativar;
             Apelido.Editable = ativar;
             Localizacao.Editable = ativar;
-            Descricao.Editable = ativar;
+            Descricao.Readonly = !ativar;
             ConteudoTXT.Editable = ativar; ;
             URL.Editable = ativar;
             IMG.Disabled = !ativar;
