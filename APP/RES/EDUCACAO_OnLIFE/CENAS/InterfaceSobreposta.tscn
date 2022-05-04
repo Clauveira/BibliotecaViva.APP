@@ -336,7 +336,9 @@ __meta__ = {
 [node name="Dados" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 1920, 950 )
+margin_top = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1920, 1020 )
 rect_scale = Vector2( 0.75, 0.75 )
 mouse_filter = 2
 script = ExtResource( 8 )
@@ -406,7 +408,6 @@ margin_bottom = -895.0
 [node name="BtnBuscar" parent="BarraDeBusca" index="1"]
 margin_left = 1050.0
 margin_right = 1152.0
-disabled = true
 
 [node name="SideBar" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0 )
