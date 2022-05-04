@@ -337,6 +337,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 1920, 950 )
+rect_scale = Vector2( 0.75, 0.75 )
 mouse_filter = 2
 script = ExtResource( 8 )
 __meta__ = {
@@ -405,12 +406,13 @@ margin_bottom = -895.0
 [node name="BtnBuscar" parent="BarraDeBusca" index="1"]
 margin_left = 1050.0
 margin_right = 1152.0
+disabled = true
 
 [node name="SideBar" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = -9.0
-margin_right = 42240.0
-margin_bottom = 23751.0
+margin_right = 44160.0
+margin_bottom = 24831.0
 rect_min_size = Vector2( 175, 139 )
 mouse_filter = 2
 
