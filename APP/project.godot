@@ -88,8 +88,8 @@ restaurar_zoom={
 
 [mono]
 
-export/include_scripts_content=true
 debugger_agent/wait_timeout=8000
+export/include_scripts_content=true
 
 [physics]
 
