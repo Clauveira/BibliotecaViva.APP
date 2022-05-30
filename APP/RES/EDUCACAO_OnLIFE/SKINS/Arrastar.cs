@@ -9,23 +9,23 @@ namespace Onlife.CTRL
         private bool EhArrastando = false;
         private Vector2 mouse_offset = new Vector2(0, 0);
         private Vector2 BarraDeTitulo_offset = new Vector2(0, -40);
-        private Control NodoJanelas = null;
+        //private Control NodoJanelas = null;
         private Control Janela = null;
 
 
         public override void _Ready()
         {
             Janela = GetParent<Control>();
-            NodoJanelas = Janela.GetParent<Control>();
+            //NodoJanelas = Janela.GetParent<Control>();
         }
         public override void _Process(float delta)
         {
             base._Process(delta);
             if (Input.IsActionJustPressed("clique_esquerdo") && IsMouseOver)
             {
-                EhArrastando = true;
+                //EhArrastando = true;
                 mouse_offset = GetLocalMousePosition();
-                NodoJanelas.MoveChild(Janela, NodoJanelas.GetChildCount());
+                //NodoJanelas.MoveChild(Janela, NodoJanelas.GetChildCount());
             }
             else if (EhArrastando && Input.IsActionJustReleased("clique_esquerdo"))
             {
