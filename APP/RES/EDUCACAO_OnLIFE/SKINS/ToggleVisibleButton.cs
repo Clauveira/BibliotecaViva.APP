@@ -10,7 +10,10 @@ public class ToggleVisibleButton : TextureButton
 
     public override void _Ready()
     {
-        alvo_object = GetNodeOrNull<Control>(alvo);
+        if (alvo != null)
+        {
+            alvo_object = GetNodeOrNull<Control>(alvo);
+        }
         if (alvo_object == null)
         {
             alvo_object = GetChildOrNull<Control>(0);
