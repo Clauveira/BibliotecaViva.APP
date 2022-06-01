@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/InterfaceSobreposta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/CENAS/JANELAS/MapaMocado.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/youtube.png" type="Texture" id=15]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/SkinNova.cs" type="Script" id=16]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/TEMAS/OpenSans-Regular.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/radial_menu.png" type="Texture" id=18]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/panorama-variant-outline.png" type="Texture" id=19]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/MockDados/JG.png" type="Texture" id=21]
 [ext_resource path="res://RES/EDUCACAO_OnLIFE/SKINS/MockDados/Maquete.png" type="Texture" id=22]
@@ -57,6 +58,21 @@ border_width_bottom = 1
 border_color = Color( 0.501961, 0.501961, 0.501961, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
+
+[sub_resource type="Theme" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 0.392157 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+corner_radius_top_left = 88
+corner_radius_top_right = 88
+corner_radius_bottom_right = 88
+corner_radius_bottom_left = 88
+corner_detail = 20
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 6 )
@@ -179,6 +195,7 @@ NomeRegistro = "Projeto Teen Community"
 ApelidoRegistro = ""
 
 [node name="MockDados" type="Control" parent="Pagina/PaginaMapa/Offset"]
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -829,8 +846,10 @@ __meta__ = {
 }
 
 [node name="Fundo" type="Panel" parent="Pagina/PaginaMapa/Offset/MockDados/PinJG/Nodo2/AbreNodo3/Nodo/Skin"]
-margin_right = 363.0
-margin_bottom = 194.0
+margin_left = -4.0
+margin_top = 2.0
+margin_right = 359.0
+margin_bottom = 196.0
 focus_mode = 1
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -1310,6 +1329,176 @@ margin_bottom = 179.0
 texture_normal = ExtResource( 15 )
 script = ExtResource( 24 )
 
+[node name="MockWheel" type="Control" parent="Pagina/PaginaMapa/Offset"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+
+[node name="Pin" type="TextureButton" parent="Pagina/PaginaMapa/Offset/MockWheel"]
+margin_left = 287.0
+margin_top = 826.0
+margin_right = 319.0
+margin_bottom = 858.0
+rect_pivot_offset = Vector2( 15, 31 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+alvo = NodePath("")
+
+[node name="Nodo2" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin" instance=ExtResource( 9 )]
+margin_left = 4.0
+margin_top = 29.0
+margin_right = 27.0
+margin_bottom = 52.0
+
+[node name="Wheel" type="Control" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = -79.0
+margin_right = 12.0
+margin_bottom = -79.0
+rect_pivot_offset = Vector2( -308, -176 )
+theme = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="Panel" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel"]
+margin_left = -90.0
+margin_top = -90.0
+margin_right = 90.0
+margin_bottom = 90.0
+focus_mode = 1
+mouse_filter = 2
+size_flags_horizontal = 3
+theme = ExtResource( 14 )
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbreNodo" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo" instance=ExtResource( 10 )]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 0 )
+margin_left = -11.0
+margin_top = -11.0
+margin_right = 194.0
+margin_bottom = 193.0
+
+[node name="Nodo" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo" instance=ExtResource( 9 )]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="RadialMenu" type="Sprite" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo"]
+position = Vector2( 6.5, 7 )
+texture = ExtResource( 18 )
+offset = Vector2( 0, -180 )
+
+[node name="Label" type="Label" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo/RadialMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -272.0
+margin_right = -115.0
+margin_bottom = -361.0
+custom_fonts/font = SubResource( 4 )
+text = "Projeto
+Teen Community"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RadialMenu2" type="Sprite" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo"]
+position = Vector2( -41.764, -21.1845 )
+rotation = 1.0472
+texture = ExtResource( 18 )
+offset = Vector2( 48.5406, -207.706 )
+
+[node name="Label" type="Label" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo/RadialMenu2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -67.8936
+margin_top = -342.035
+margin_right = -67.8936
+margin_bottom = -342.035
+custom_fonts/font = SubResource( 4 )
+text = "Maquete da escola
+Impressa
+em 3D"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RadialMenu3" type="Sprite" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo"]
+position = Vector2( 6.5, 7 )
+rotation = 2.09439
+texture = ExtResource( 18 )
+offset = Vector2( 0, -180 )
+
+[node name="RadialMenu4" type="Sprite" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo"]
+position = Vector2( 6.5, 7 )
+rotation = 3.14159
+texture = ExtResource( 18 )
+offset = Vector2( 0, -180 )
+
+[node name="RadialMenu5" type="Sprite" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo"]
+position = Vector2( 6.5, 7 )
+rotation = -2.0944
+texture = ExtResource( 18 )
+offset = Vector2( 0, -180 )
+
+[node name="RadialMenu6" type="Sprite" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo"]
+position = Vector2( 6.5, 7 )
+rotation = -1.04721
+texture = ExtResource( 18 )
+offset = Vector2( 0, -180 )
+
+[node name="Label" type="Label" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo/AbreNodo/Nodo/RadialMenu6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -110.902
+margin_top = -310.093
+margin_right = -110.902
+margin_bottom = -322.093
+custom_fonts/font = SubResource( 4 )
+text = "Canal JG
+Produções
+Estudantis"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pagina/PaginaMapa/Offset/MockWheel/Pin/Nodo2/Wheel/Fundo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = -8.0
+margin_right = -7.0
+margin_bottom = -45.0
+custom_fonts/font = SubResource( 4 )
+text = "Escola Municipal
+João Belchior
+Marques Goulart"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PaginaIndex" parent="Pagina" instance=ExtResource( 7 )]
 visible = false
 
@@ -1354,3 +1543,5 @@ visible = false
 [connection signal="mouse_exited" from="Pagina/PaginaMapa/Offset/MockDados/PinSM/Nodo2/TC/Nodo/Skin/Fundo" to="Pagina/PaginaMapa/Offset/MockDados/PinSM/Nodo2/TC/Nodo/Skin/Fundo" method="_on_BarraDeTituloJanela_mouse_exited"]
 [connection signal="mouse_entered" from="Pagina/PaginaMapa/Offset/MockDados/PinSM/Nodo2/AbreNodo3/Nodo/Skin/Fundo" to="Pagina/PaginaMapa/Offset/MockDados/PinSM/Nodo2/AbreNodo3/Nodo/Skin/Fundo" method="_on_BarraDeTituloJanela_mouse_entered"]
 [connection signal="mouse_exited" from="Pagina/PaginaMapa/Offset/MockDados/PinSM/Nodo2/AbreNodo3/Nodo/Skin/Fundo" to="Pagina/PaginaMapa/Offset/MockDados/PinSM/Nodo2/AbreNodo3/Nodo/Skin/Fundo" method="_on_BarraDeTituloJanela_mouse_exited"]
+[connection signal="pressed" from="Pagina/PaginaMapa/Offset/MockWheel/Pin" to="Pagina/PaginaMapa/Offset/MockWheel/Pin" method="_on_ToggleVisibleButton_pressed"]
+[connection signal="visibility_changed" from="Pagina/PaginaMapa/Offset/MockWheel/Pin" to="Pagina/PaginaMapa/Offset/MockWheel/Pin" method="_on_ToggleVisibleButton_visibility_changed"]
